@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Deloff"
+    tools:showIn="@layout/deloff">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="15dp"
+        android:background="@drawable/cs_bg">
+
+        <ListView
+            android:id="@+id/preferdel"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#FFF"
+            android:layout_alignParentLeft="true"
+            />
+
+
+
+        <EditText
+            android:id="@+id/rea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/preferdel"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:hint="取消理由"
+            android:textColorHint="#FFF"
+            android:textColor="#FFF"
+            android:ems="10" />
+        <TextView
+            android:id="@+id/show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/rea"
+            android:textColor="#FFF"
+            android:layout_marginLeft="22dp"
+            android:text=" " />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@id/show">
+            <ImageView
+                android:id="@+id/fin"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/cs_ret"/>
+            <ImageView
+                android:id="@+id/okbtndel"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/cs_cancel" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
