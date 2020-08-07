@@ -38,7 +38,7 @@ public class Search extends AppCompatActivity {
     ImageView ret;
 ListView mylist;
     String account,department,name,hr,pwd;
-    String substitute="",manager="",emp_id="",type="",time="",hruselea="";
+    String substitute="",manager="",emp_id="",type="",time="",hruselea="",serial_num="";
     String myname="",reason="";
     String notes="";
 
@@ -130,14 +130,15 @@ ListView mylist;
                     String start_t=jsonData.getString("start_t");
                     String end_t=jsonData.getString("end_t");
                     String end_d=jsonData.getString("end_d");
+                    serial_num=jsonData.getString("serial_num");
                     if(notes.equals("1")){
 
-                     Keka  keka = new Keka("\n[待銷假]  "+type+"/"+reason+"\n"+start_d+"/"+start_t+"\n"+end_d+"/"+end_t+"\n");
+                     Keka  keka = new Keka("\n"+serial_num+"\n[待銷假]  "+type+"/"+reason+"\n"+start_d+"/"+start_t+"\n"+end_d+"/"+end_t+"\n");
                         kekas.add(keka);
                     }
                     else{
 
-                        Keka  keka = new Keka("\n"+type+"/"+reason+"\n"+start_d+"/"+start_t+"\n"+end_d+"/"+end_t+"\n");
+                        Keka  keka = new Keka("\n"+serial_num+"\n"+type+"/"+reason+"\n"+start_d+"/"+start_t+"\n"+end_d+"/"+end_t+"\n");
                         kekas.add(keka);
                     }
 

@@ -38,7 +38,7 @@ public class Subsign extends AppCompatActivity {
     private TextView show;
     private ListView prefer;
     String account,department,name,hr,pwd;
-    String substitute="",manager="",emp_id="",type="",time="",hruselea="";
+    String substitute="",manager="",emp_id="",type="",time="",hruselea="",serial_num="";
     String myname="",reason="";
     String notes="";
     List<String> list;
@@ -142,7 +142,7 @@ public class Subsign extends AppCompatActivity {
                 type=jsonData.getString("type");
                 myname=jsonData.getString("name");
                 reason=jsonData.getString("reason");
-
+                serial_num=jsonData.getString("serial_num");
                 hruselea=jsonData.getString("hruse");
                 notes=jsonData.getString("notes");
                 String start_d=jsonData.getString("start_d");
@@ -157,11 +157,11 @@ public class Subsign extends AppCompatActivity {
                 {
 
                     if(notes.equals("1"))
-                    {  list.add("\n"+"取消請假:"+myname+"/"+type+"/"+reason+"\n起"+start_d+"/"+start_t+"\n至"+end_d+"/"+end_t+"\n");
+                    {  list.add("\n"+serial_num+"\n"+"取消請假:"+myname+"/"+type+"/"+reason+"\n起"+start_d+"/"+start_t+"\n至"+end_d+"/"+end_t+"\n");
                         listShow.add(false);
                     }
                     else{
-                        list.add("\n"+myname+"/"+type+"/"+reason+"\n起"+start_d+"/"+start_t+"\n至"+end_d+"/"+end_t+"\n");
+                        list.add("\n"+serial_num+"\n"+myname+"/"+type+"/"+reason+"\n起"+start_d+"/"+start_t+"\n至"+end_d+"/"+end_t+"\n");
                         listShow.add(false);
                     }
                 }

@@ -12,7 +12,7 @@ import org.json.JSONArray;
 
 public class NickyService  extends Service {
     private Handler handler = new Handler();
-    String account="q";
+    String account="A00038";
     @Override
     public IBinder onBind(Intent intent) {
         return null;
@@ -27,7 +27,7 @@ public class NickyService  extends Service {
     public void onStart(Intent intent, int startId) {
         //intent=this.getIntent();
         account = intent.getStringExtra("ACCOUNT");
-        handler.postDelayed(showTime, 1000);
+        handler.postDelayed(showTime, 10000);
         super.onStart(intent, startId);
     }
 
@@ -41,7 +41,6 @@ public class NickyService  extends Service {
         builder.setSmallIcon(R.drawable.ic_launcher)
                 .setPriority(Notification.PRIORITY_HIGH)
                 .setOngoing(false);
-        builder.setLights(Color.GREEN, 1000, 1000);
 
         builder.setContentText("待簽核");
         NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);

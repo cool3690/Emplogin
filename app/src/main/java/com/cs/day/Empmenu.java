@@ -93,10 +93,10 @@ public class Empmenu extends AppCompatActivity {
         public boolean onTouch(View view, MotionEvent motionEvent) {
             switch(motionEvent.getAction()){
                 case MotionEvent.ACTION_DOWN:
-                    signature.setImageResource(R.drawable.cs_offh);
+                    signature.setImageResource(R.drawable.cs_signh);
                     break;
                 case  MotionEvent.ACTION_UP:
-                    signature.setImageResource(R.drawable.cs_off);
+                    signature.setImageResource(R.drawable.cs_sign);
                     dialog = new ProgressDialog(Empmenu.this);
                     dialog.setMessage("Loading...請稍後");
                     dialog.show();

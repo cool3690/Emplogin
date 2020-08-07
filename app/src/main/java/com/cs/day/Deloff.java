@@ -40,7 +40,7 @@ public class Deloff extends AppCompatActivity {
     List<Boolean> listShow;
     // 這個用來記錄哪幾個 item 是被打勾的
     String account,department,name,hr,pwd;
-    String substitute="",manager="",emp_id="",type="",time="",hruselea="";
+    String substitute="",manager="",emp_id="",type="",time="",hruselea="",serial_num="";
     String myname="",reason="";
     Dialog dia;
     Context context;
@@ -83,8 +83,10 @@ public class Deloff extends AppCompatActivity {
 
             for(int i = 0; i < jsonArray.length(); i++)
             {	 JSONObject jsonData = jsonArray.getJSONObject(i);
+                serial_num=jsonData.getString("serial_num");
                 String notes=jsonData.getString("notes");
                 if(!notes.equals("2")){
+
                     emp_id=jsonData.getString("emp_id");
                     type=jsonData.getString("type");
                     myname=jsonData.getString("name");
@@ -101,7 +103,7 @@ public class Deloff extends AppCompatActivity {
                          */
                     }
                     else{
-                        list.add("\n"+type+"/"+reason+"\n"+start_d+"/"+start_t+"\n"+end_d+"/"+end_t+"\n");
+                        list.add("\n"+serial_num+"\n"+type+"/"+reason+"\n"+start_d+"/"+start_t+"\n"+end_d+"/"+end_t+"\n");
                         listShow.add(false);
                     }
 

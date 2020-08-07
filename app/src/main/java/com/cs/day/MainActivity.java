@@ -1,12 +1,23 @@
 package com.cs.day;
 
+import android.app.NotificationChannel;
+import android.app.PendingIntent;
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NotificationCompat;
 
 import android.os.Handler;
 import android.os.Message;
+import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -30,6 +41,7 @@ import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.nio.channels.Channel;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -39,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText pwd;
     private TextView show;
     private ProgressDialog dialog;
+
+    NotificationManager notificationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 .build());
         findViews();
         setListeners();
+        schedulejob();
 
     }
 
@@ -78,13 +93,66 @@ public class MainActivity extends AppCompatActivity {
         acc.setText(name_str);
         pwd.setText(pass_str);
 
+        /*
+schedulejob();
         Intent intent2 = new Intent(MainActivity.this, NickyService.class);
 
         intent2.putExtra("ACCOUNT", name_str);
         startService(intent2);
 
-    }
+         */
+      //  find();
+        Notify();
 
+    }
+    public void Notify() {
+        NotificationManager manager = (NotificationManager)
+                getSystemService(Context.NOTIFICATION_SERVICE);
+
+// 建立通知物件，設定小圖示、大圖示、內容標題、內容訊息、時間
+        Notification notification = new NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.ic_launcher)
+                .setContentTitle("標題")
+                .setContentText("訊息內容")
+                .setWhen(System.currentTimeMillis())
+                .build();
+
+// 使用0為編號發出通知
+        manager.notify(0, notification);
+    }
+    public void schedulejob(){
+
+        ComponentName componentName=new ComponentName(this,JobSchedulerService.class);
+        PersistableBundle bundle = new PersistableBundle();
+      //  String tmp="0";
+        SharedPreferences remdname=getPreferences(Activity.MODE_PRIVATE);
+        String name_str=remdname.getString("emp_id", "");
+
+
+            bundle.putString("INPUT",name_str);
+
+
+     //   Intent intent2 = new Intent(MainActivity.this, NickyService.class);
+
+      //  intent2.putExtra("ACCOUNT", name_str);
+     //   startService(intent2);
+
+
+
+/* */
+     JobInfo jobInfo= new JobInfo.Builder(123,componentName)
+             .setPersisted(true) // 重開機後是否執行
+             .setMinimumLatency(3000) // 延遲多久執行
+             .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY) //網路條件
+             .setExtras(bundle)
+             .build();
+
+     JobScheduler scheduler=(JobScheduler)getSystemService(JOB_SCHEDULER_SERVICE);
+   int result=scheduler.schedule(jobInfo);
+   if(result==JobScheduler.RESULT_SUCCESS){}
+   else {}
+
+    }
     private void setListeners() {
         login.setOnTouchListener(getDBRecord);
         //  signature.setOnClickListener(getsign);
@@ -144,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
                 .setOngoing(true);
         builder.setLights(Color.GREEN, 1000, 1000);
 
-        builder.setContentText("通知");
+        builder.setContentText("通知,代理人情報");
         NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         manager.notify(1, builder.build());
     }

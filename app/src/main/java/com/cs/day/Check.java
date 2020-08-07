@@ -34,7 +34,7 @@ public class Check extends AppCompatActivity {
     private TextView show;
     private ListView prefer;
     String account,department,name,hr,pwd;
-    String substitute="",manager="",emp_id="",type="",time="",hruselea="";
+    String substitute="",manager="",emp_id="",type="",time="",hruselea="",serial_num="";
     String myname="",reason="";
     String notes="";
     List<String> list;
@@ -132,6 +132,7 @@ public class Check extends AppCompatActivity {
             JSONArray jsonArray = new JSONArray(result);
             for(int i = 0; i < jsonArray.length(); i++) //代理或主管有工號者顯示
             {	 JSONObject jsonData = jsonArray.getJSONObject(i);
+                serial_num=jsonData.getString("serial_num");
                 emp_id=jsonData.getString("emp_id");
                 substitute=jsonData.getString("substitute");
                 manager=jsonData.getString("manager");
@@ -153,11 +154,11 @@ public class Check extends AppCompatActivity {
                 {
 
                     if(notes.equals("1"))
-                    {  list.add("\n"+"取消請假:"+myname+"/"+type+"/"+reason+"\n起"+start_d+"/"+start_t+"\n至"+end_d+"/"+end_t+"\n");
+                    {  list.add("\n"+serial_num+"\n"+"銷假:"+myname+"/"+type+"/"+reason+"\n起"+start_d+"/"+start_t+"\n至"+end_d+"/"+end_t+"\n");
                         listShow.add(false);
                     }
                     else{
-                        list.add("\n"+myname+"/"+type+"/"+reason+"\n起"+start_d+"/"+start_t+"\n至"+end_d+"/"+end_t+"\n");
+                        list.add("\n"+serial_num+"\n"+myname+"/"+type+"/"+reason+"\n起"+start_d+"/"+start_t+"\n至"+end_d+"/"+end_t+"\n");
                         listShow.add(false);
                     }
                 }
@@ -188,6 +189,7 @@ public class Check extends AppCompatActivity {
                         for(int i = 0; i < jsonArray.length(); i++)
                         {if (listShow.get(i)==true){//代理或主管有工號者顯示
                             JSONObject jsonData = jsonArray.getJSONObject(i);
+                            serial_num=jsonData.getString("serial_num");
                             emp_id=jsonData.getString("emp_id");
                             substitute=jsonData.getString("substitute");
                             manager=jsonData.getString("manager");

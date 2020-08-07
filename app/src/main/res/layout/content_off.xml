@@ -14,17 +14,20 @@
         android:paddingRight="25dp"
         android:paddingLeft="25dp"
         android:background="@drawable/cs_bg">
+
         <TextView
             android:id="@+id/tt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/choice"
             android:layout_below="@+id/textView1"
+            android:layout_alignLeft="@+id/choice"
             android:layout_marginTop="15dp"
+            android:fontFamily="sans-serif-condensed"
             android:paddingLeft="8dp"
             android:paddingRight="5dp"
+            android:text="show"
             android:textColor="@color/cardview_light_background"
-            android:text="show" />
+            android:textSize="18sp" />
         <Spinner
             android:id="@+id/choice"
             android:layout_width="match_parent"
@@ -111,13 +114,15 @@
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:layout_below="@+id/reason">
+
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:textColor="@color/cardview_light_background"
-                android:text="代理人:  " />
+                android:fontFamily="@font/work_sans"
+                android:text="代理人:  "
+                android:textColor="@color/cardview_light_background" />
             <Spinner
                 android:id="@+id/sub"
                 android:layout_width="wrap_content"
@@ -163,7 +168,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/L4"
             android:layout_marginTop="10dp"
-            android:text="特休以30分鐘為單位，不滿30分自動以30分計算"
+            android:text="特休以30分鐘為單位,不滿30分自動以30分計算"
             android:textColor="@color/cardview_light_background"
             android:textSize="16sp" />
 
@@ -173,7 +178,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView2"
             android:layout_marginTop="20dp"
-            android:text="-"
+            android:text="."
             android:textColor="@color/cardview_light_background"
             android:textSize="10sp" />
         <!--
