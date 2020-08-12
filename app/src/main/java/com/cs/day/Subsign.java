@@ -178,10 +178,10 @@ public class Subsign extends AppCompatActivity {
         public boolean onTouch(View view, MotionEvent motionEvent) {
             switch(motionEvent.getAction()){
                 case MotionEvent.ACTION_DOWN:
-                    okbtn.setImageResource(R.drawable.cs_signh);
+                    okbtn.setImageResource(R.drawable.cs_okh);
                     break;
                 case  MotionEvent.ACTION_UP:
-                    okbtn.setImageResource(R.drawable.cs_sign);
+                    okbtn.setImageResource(R.drawable.cs_ok);
                     try{
                         String result =dbleave2.executeQuery(account);//代理或主管有工號者顯示
 

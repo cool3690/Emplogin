@@ -364,6 +364,7 @@ public class Off extends AppCompatActivity {
                                     String str="重複請假";
                                     mytoast(str);
                                     date1.setText("");
+                                    date2.setText("");
                                     break;
                                 }
 
