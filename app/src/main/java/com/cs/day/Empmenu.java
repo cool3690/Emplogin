@@ -168,10 +168,10 @@ public class Empmenu extends AppCompatActivity {
         public boolean onTouch(View view, MotionEvent motionEvent) {
             switch(motionEvent.getAction()){
                 case MotionEvent.ACTION_DOWN:
-                    ret.setImageResource(R.drawable.cs_loginh);
+                    ret.setImageResource(R.drawable.cs_logouth);
                     break;
                 case  MotionEvent.ACTION_UP:
-                    ret.setImageResource(R.drawable.cs_login);
+                    ret.setImageResource(R.drawable.cs_logout);
                     Intent intent=new Intent();
                     intent.setClass(Empmenu.this,MainActivity.class);
                     startActivity(intent);

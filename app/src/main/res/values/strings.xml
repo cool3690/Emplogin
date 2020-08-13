@@ -30,5 +30,6 @@
     <string name="title_activity_search">請假紀錄查詢</string>
     <string name="title_activity_subsign">代理人情報</string>
 
-
+    <string name="notification_chnnl_location">Location polling</string>
+    <string name="notification_chnnl_location_descr">You will see notifications on this channel ONLY during location polling</string>
 </resources>

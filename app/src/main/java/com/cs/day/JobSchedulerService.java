@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.RequiresApi;
+import androidx.core.app.NotificationCompat;
 
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class JobSchedulerService extends JobService {
@@ -54,7 +55,6 @@ public class JobSchedulerService extends JobService {
 
         handler.postDelayed(showTime,5000);
 
-
         return true;
     }
 
@@ -72,8 +72,7 @@ public class JobSchedulerService extends JobService {
                 .setPriority(Notification.PRIORITY_HIGH)
                 .setOngoing(false);
 
-      //  builder.setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 });
-
+      //  builder.setVibrate(new long[] { 1000, 1000 });
         //LED
         builder.setLights(Color.RED, 3000, 3000);
         builder.setContentText("待簽表單有"+s+"張");
@@ -113,7 +112,7 @@ public class JobSchedulerService extends JobService {
             }
 
 
-                handler.postDelayed(this,3000000);
+                handler.postDelayed(this,3000);
 
         }
     };
