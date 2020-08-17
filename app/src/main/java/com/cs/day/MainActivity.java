@@ -55,8 +55,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText pwd;
     private TextView show;
     private ProgressDialog dialog;
-    private NotificationHelper mNotificationHelper;
-   
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,11 +89,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void schedulejob(){
-
-
-
-
-
         ComponentName componentName=new ComponentName(this,JobSchedulerService.class);
         PersistableBundle bundle = new PersistableBundle();
         SharedPreferences remdname=getPreferences(Activity.MODE_PRIVATE);
@@ -121,20 +114,6 @@ public class MainActivity extends AppCompatActivity {
         //  del.setOnClickListener(getdel);
     }
 
-
-    /*
-    private void testNotification() {
-        Notification.Builder builder = new Notification.Builder(this);
-        builder.setSmallIcon(R.drawable.ic_launcher)
-                .setPriority(Notification.PRIORITY_HIGH)
-                .setOngoing(true);
-        builder.setLights(Color.GREEN, 1000, 1000);
-
-        builder.setContentText("通知,代理人情報");
-        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        manager.notify(1, builder.build());
-    }
-*/
     private void startDownload() {
 
         new MainActivity.DownloadFileAsync().execute();

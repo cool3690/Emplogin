@@ -3,8 +3,10 @@ package com.cs.day;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.job.JobParameters;
 import android.app.job.JobService;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -29,9 +31,9 @@ public class JobSchedulerService extends JobService {
     String account="q";
     int i=0;
     private boolean jobcancel=false;
-    public static final  String CHANNEL_ID          = "default";
-    private static final String CHANNEL_NAME        = "Default Channel";
-    private static final String CHANNEL_DESCRIPTION = "this is default channel!";
+    private static final String TEST_NOTIFY_ID = "test_notyfy_id";
+    private static final int NOTYFI_REQUEST_ID = 300;
+    private int testNotifyId = 11;
     @Override
     public boolean onStartJob(JobParameters jobParameters ) {
      //   Log.d(TAG, "JobSchedulerService onStartJob");
@@ -58,14 +60,36 @@ public class JobSchedulerService extends JobService {
         return true;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    private void createNotificationChannel(String channelId, String channelName, int importance) {
-        NotificationChannel channel = new NotificationChannel(channelId, channelName, importance);
-        NotificationManager notificationManager = (NotificationManager) getSystemService(
-                NOTIFICATION_SERVICE);
-        notificationManager.createNotificationChannel(channel);
-    }
 
+    public void showNotification(String s) {
+
+        Intent intent =new Intent(getApplicationContext(),MainActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(),
+                NOTYFI_REQUEST_ID,
+                intent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        Notification.Builder builder = new Notification.Builder(this)
+                .setContentTitle("待簽表單")
+                .setContentText("待簽表單有"+s+"張")
+                .setSmallIcon(R.drawable.ic_launcher)
+                .setVibrate(new long[] { 1000, 1000 })
+                .setContentIntent(pendingIntent);
+        NotificationChannel channel;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            channel = new NotificationChannel(TEST_NOTIFY_ID
+                    , "全興請假APP"
+                    , NotificationManager.IMPORTANCE_HIGH);
+            builder.setChannelId(TEST_NOTIFY_ID);
+            manager.createNotificationChannel(channel);
+        } else {
+            builder.setDefaults(Notification.DEFAULT_ALL)
+                    .setVisibility(Notification.VISIBILITY_PUBLIC);
+        }
+        manager.notify(testNotifyId,
+                builder.build());
+    }
     private void testNotification(String s) {
         Notification.Builder builder = new Notification.Builder(this);
         builder.setSmallIcon(R.drawable.ic_launcher)
@@ -94,25 +118,19 @@ public class JobSchedulerService extends JobService {
                 if(jsonArray.length()>0) {
                     // JSONObject jsonData = jsonArray.getJSONObject(i);
                     testNotification(jsonArray.length()+"");
-                  //  createNotificationChannel(CHANNEL_ID,CHANNEL_NAME, 100);
-                    handler.postDelayed(this, 1000);
+                    showNotification(jsonArray.length()+"");
                     i++;
+                    if(i==2)jobcancel=true;
+                    if(jobcancel){return;}
+                    handler.postDelayed(this, 1000);
+
                 }
             } catch(Exception e) {}
 
-          if(i==2)jobcancel=true;
-           if(jobcancel){return;}
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                String channelId = "upgrade";
-                String channelName = "待簽表單";
-                int importance = NotificationManager.IMPORTANCE_HIGH;
-                createNotificationChannel(channelId, channelName, importance);
-
-            }
 
 
-                handler.postDelayed(this,3000);
+
+                handler.postDelayed(this,3000000);
 
         }
     };
