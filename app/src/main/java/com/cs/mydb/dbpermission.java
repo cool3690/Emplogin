@@ -1,4 +1,4 @@
-package com.cs.day;
+package com.cs.mydb;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -15,15 +15,15 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class dbcarname {
-    public static String executeQuery(String scar) {
+public class dbpermission {
+    public static String executeQuery(String vendor_id) {
         String result = "";
 
         try {
             HttpClient httpClient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost("https://chansing.com.tw/car/carname.php");
+            HttpPost httpPost = new HttpPost("https://chansing.com.tw/app/dbpermission.php");
             ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("scar", scar));
+            params.add(new BasicNameValuePair("vendor_id", vendor_id));
             //params.add(new BasicNameValuePair("passwd", passwd));
             httpPost.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
             HttpResponse httpResponse = httpClient.execute(httpPost);

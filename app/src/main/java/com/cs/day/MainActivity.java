@@ -1,28 +1,17 @@
 package com.cs.day;
 
-import android.app.NotificationChannel;
-import android.app.PendingIntent;
-import android.app.Service;
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.NotificationCompat;
 
-import android.os.Handler;
-import android.os.Message;
 import android.os.PersistableBundle;
-import android.os.Vibrator;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -30,11 +19,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import android.app.Activity;
-import android.app.Notification;
-import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.StrictMode;
 import android.widget.EditText;
@@ -42,12 +28,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cs.control.GlobalVariable;
+import com.cs.control.JobSchedulerService;
+import com.cs.mydb.db;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
-
-import java.nio.channels.Channel;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
     private ImageView login,img;//,signature,del;
@@ -89,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void schedulejob(){
-        ComponentName componentName=new ComponentName(this,JobSchedulerService.class);
+        ComponentName componentName=new ComponentName(this, JobSchedulerService.class);
         PersistableBundle bundle = new PersistableBundle();
         SharedPreferences remdname=getPreferences(Activity.MODE_PRIVATE);
         String name_str=remdname.getString("emp_id", "");

@@ -1,4 +1,4 @@
-package com.cs.day;
+package com.cs.mydb;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -15,17 +15,18 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 
-public class dbleacom {
-    public static String executeQuery(String emp_id,String start_d,String start_t) {
+public class dbempup {
+    public static String executeQuery(String emp_id,String hruse,String hrremain) {
         String result = "";
        
         try { 
             HttpClient httpClient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost("https://demo.chansing.com.tw/off/leacomapp.php");
+            HttpPost httpPost = new HttpPost("https://demo.chansing.com.tw/off/empupapp.php");
             ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
             params.add(new BasicNameValuePair("emp_id", emp_id));
-            params.add(new BasicNameValuePair("start_d", start_d));
-            params.add(new BasicNameValuePair("start_t", start_t));
+            
+            params.add(new BasicNameValuePair("hruse", hruse));
+            params.add(new BasicNameValuePair("hrremain", hrremain));
             httpPost.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
             HttpResponse httpResponse = httpClient.execute(httpPost);
             //view_account.setText(httpResponse.getStatusLine().toString());

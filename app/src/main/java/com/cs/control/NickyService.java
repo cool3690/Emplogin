@@ -1,12 +1,14 @@
-package com.cs.day;
+package com.cs.control;
 
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Handler;
 import android.os.IBinder;
+
+import com.cs.day.R;
+import com.cs.mydb.dbleanoti;
 
 import org.json.JSONArray;
 

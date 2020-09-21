@@ -4,7 +4,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -19,6 +18,13 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import android.widget.TextView;
+
+import com.cs.control.GlobalVariable;
+import com.cs.mydb.dbemp;
+import com.cs.mydb.dbempcom;
+import com.cs.mydb.dbempup;
+import com.cs.mydb.dbleaup;
+import com.cs.mydb.dbleave2;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -128,7 +134,7 @@ public class Check extends AppCompatActivity {
     }
     public void mydb(){
         try{
-            String result =dbleave2.executeQuery(account);
+            String result = dbleave2.executeQuery(account);
             JSONArray jsonArray = new JSONArray(result);
             for(int i = 0; i < jsonArray.length(); i++) //代理或主管有工號者顯示
             {	 JSONObject jsonData = jsonArray.getJSONObject(i);
@@ -264,7 +270,8 @@ public class Check extends AppCompatActivity {
                                     //String f=com2+"";
                                     if(type.equals("補休")){
                                         if(notes.equals("1"))
-                                        {dbempcom.executeQuery(emp_id,com+"");
+                                        {
+                                            dbempcom.executeQuery(emp_id,com+"");
                                             //dbempup.executeQuery(emp_id,f);//db update
                                         }
                                         else{dbempcom.executeQuery(emp_id,com2+"");

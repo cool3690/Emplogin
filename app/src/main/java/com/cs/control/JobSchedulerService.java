@@ -1,4 +1,4 @@
-package com.cs.day;
+package com.cs.control;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -8,6 +8,7 @@ import android.app.job.JobParameters;
 import android.app.job.JobService;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Handler;
@@ -16,13 +17,13 @@ import android.view.Gravity;
 import android.widget.Toast;
 
 
+import com.cs.day.MainActivity;
+import com.cs.day.R;
+import com.cs.mydb.dbleanoti;
+
 import org.json.JSONArray;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import androidx.annotation.RequiresApi;
-import androidx.core.app.NotificationCompat;
 
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class JobSchedulerService extends JobService {
@@ -63,7 +64,7 @@ public class JobSchedulerService extends JobService {
 
     public void showNotification(String s) {
 
-        Intent intent =new Intent(getApplicationContext(),MainActivity.class);
+        Intent intent =new Intent(getApplicationContext(), MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(),
                 NOTYFI_REQUEST_ID,
                 intent,
@@ -73,8 +74,8 @@ public class JobSchedulerService extends JobService {
         Notification.Builder builder = new Notification.Builder(this)
                 .setContentTitle("待簽表單")
                 .setContentText("待簽表單有"+s+"張")
-                .setSmallIcon(R.drawable.ic_launcher)
-                .setVibrate(new long[] { 1000, 1000 })
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
+                .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentIntent(pendingIntent);
         NotificationChannel channel;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

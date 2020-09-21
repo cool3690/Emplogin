@@ -20,6 +20,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cs.control.GlobalVariable;
+import com.cs.mydb.dbcarname;
+import com.cs.mydb.dbpermission;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -126,7 +130,7 @@ public class Video extends AppCompatActivity {
         Date date2=new Date();
         String t2=t.format(date2);
 
-        String a=dbcarname.executeQuery(sel);
+        String a= dbcarname.executeQuery(sel);
         String b[]=a.split(":");
         String c[]=b[0].split(",");
         String d[]=b[1].split(",");

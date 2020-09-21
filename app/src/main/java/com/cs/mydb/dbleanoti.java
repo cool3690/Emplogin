@@ -1,4 +1,4 @@
-package com.cs.day;
+package com.cs.mydb;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -15,16 +15,16 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 
-public class db {
-    public static String executeQuery(String emp_id,String passwd) {
+public class dbleanoti {
+    public static String executeQuery(String account) {
         String result = "";
        
         try { 
             HttpClient httpClient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost("https://demo.chansing.com.tw/off/cont.php");
+            HttpPost httpPost = new HttpPost("https://demo.chansing.com.tw/off/leanotiapp.php");
             ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("emp_id", emp_id));
-            params.add(new BasicNameValuePair("pwd", passwd));
+            params.add(new BasicNameValuePair("emp_id", account));
+           
             httpPost.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
             HttpResponse httpResponse = httpClient.execute(httpPost);
             //view_account.setText(httpResponse.getStatusLine().toString());

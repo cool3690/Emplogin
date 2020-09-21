@@ -7,8 +7,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import com.cs.control.GlobalVariable;
+import com.cs.mydb.dbleasel;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -19,10 +19,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -31,7 +29,6 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class Search extends AppCompatActivity {
     ArrayList<Keka> kekas = new ArrayList<Keka>();
@@ -117,7 +114,7 @@ ListView mylist;
         Date cDate = new Date();
         String fDate = new SimpleDateFormat("yyyy-01-01").format(cDate);
         try{
-            String result =dbleasel.executeQuery(account,fDate);
+            String result = dbleasel.executeQuery(account,fDate);
             JSONArray jsonArray = new JSONArray(result);
             for(int i = 0; i < jsonArray.length(); i++) //代理或主管有工號者顯示
             {	 JSONObject jsonData = jsonArray.getJSONObject(i);

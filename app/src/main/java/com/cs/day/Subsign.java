@@ -7,8 +7,12 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import com.cs.control.GlobalVariable;
+import com.cs.mydb.dbemp;
+import com.cs.mydb.dbempcom;
+import com.cs.mydb.dbempup;
+import com.cs.mydb.dbleaup;
+import com.cs.mydb.dbleave2;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -132,7 +136,7 @@ public class Subsign extends AppCompatActivity {
     }
     public void mydb(){
         try{
-            String result =dbleave2.executeQuery(account);
+            String result = dbleave2.executeQuery(account);
             JSONArray jsonArray = new JSONArray(result);
             for(int i = 0; i < jsonArray.length(); i++) //代理或主管有工號者顯示
             {	 JSONObject jsonData = jsonArray.getJSONObject(i);
@@ -266,7 +270,8 @@ public class Subsign extends AppCompatActivity {
                                     //String f=com2+"";
                                     if(type.equals("補休")){
                                         if(notes.equals("1"))
-                                        {dbempcom.executeQuery(emp_id,com+"");
+                                        {
+                                            dbempcom.executeQuery(emp_id,com+"");
                                             //dbempup.executeQuery(emp_id,f);//db update
                                         }
                                         else{dbempcom.executeQuery(emp_id,com2+"");

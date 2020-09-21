@@ -1,9 +1,4 @@
-package com.cs.day;
-
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
+package com.cs.mydb;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -15,23 +10,27 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 
-public class dbleadel {
-    public static String executeQuery(String emp_id,String lea_id) {
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+public class dblogin {
+    public static String executeQuery(String account) {
         String result = "";
-       
-        try { 
+
+        try {
             HttpClient httpClient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost("https://demo.chansing.com.tw/off/leadelapp.php");
+            HttpPost httpPost = new HttpPost("https://chansing.com.tw/app/dblogin.php");
             ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("emp_id", emp_id));
-            params.add(new BasicNameValuePair("lea_id", lea_id));
-           
+            params.add(new BasicNameValuePair("account", account));
+            //params.add(new BasicNameValuePair("passwd", passwd));
             httpPost.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
             HttpResponse httpResponse = httpClient.execute(httpPost);
             //view_account.setText(httpResponse.getStatusLine().toString());
             HttpEntity httpEntity = httpResponse.getEntity();
             InputStream inputStream = httpEntity.getContent();
-             
+
             BufferedReader bufReader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"), 8);
             StringBuilder builder = new StringBuilder();
             String line = null;
@@ -43,7 +42,7 @@ public class dbleadel {
         } catch(Exception e) {
             // Log.e("log_tag", e.toString());
         }
-        
+
         return result;
     }
 }

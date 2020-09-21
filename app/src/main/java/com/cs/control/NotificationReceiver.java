@@ -1,8 +1,10 @@
-package com.cs.day;
+package com.cs.control;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.cs.day.R;
 
 public class NotificationReceiver extends AppCompatActivity {
 

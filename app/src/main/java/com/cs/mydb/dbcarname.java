@@ -1,4 +1,4 @@
-package com.cs.day;
+package com.cs.mydb;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -15,15 +15,15 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class dblogin {
-    public static String executeQuery(String account) {
+public class dbcarname {
+    public static String executeQuery(String scar) {
         String result = "";
 
         try {
             HttpClient httpClient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost("https://chansing.com.tw/app/dblogin.php");
+            HttpPost httpPost = new HttpPost("https://chansing.com.tw/car/carname.php");
             ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("account", account));
+            params.add(new BasicNameValuePair("scar", scar));
             //params.add(new BasicNameValuePair("passwd", passwd));
             httpPost.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
             HttpResponse httpResponse = httpClient.execute(httpPost);

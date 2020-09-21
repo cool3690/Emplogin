@@ -1,4 +1,4 @@
-package com.cs.day;
+package com.cs.control;
 import android.app.Application;
 
 public class GlobalVariable extends Application {

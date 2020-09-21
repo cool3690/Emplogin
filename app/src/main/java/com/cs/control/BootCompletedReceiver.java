@@ -1,4 +1,4 @@
-package com.cs.day;
+package com.cs.control;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

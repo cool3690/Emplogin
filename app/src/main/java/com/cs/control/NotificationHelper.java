@@ -1,4 +1,4 @@
-package com.cs.day;
+package com.cs.control;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -9,6 +9,8 @@ import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.provider.Settings;
+
+import com.cs.day.R;
 
 import androidx.core.app.NotificationCompat;
 

@@ -2,7 +2,6 @@ package com.cs.day;
 
 import android.os.Bundle;
 
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -27,6 +26,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.cs.control.GlobalVariable;
+import com.cs.mydb.dbcheck;
+import com.cs.mydb.dbin;
+import com.cs.mydb.dbleacom;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.text.ParseException;
@@ -284,7 +289,7 @@ public class Off extends AppCompatActivity {
     public void search(){
         try{
 
-            String result =dbcheck.executeQuery(account);
+            String result = dbcheck.executeQuery(account);
 
             JSONArray jsonArray = new JSONArray(result);
 
@@ -355,7 +360,7 @@ public class Off extends AppCompatActivity {
                         for(int y=0;y<1;y++){
                             try{ String tim=time1.getText().toString();
 
-                                String result =dbleacom.executeQuery(account,td,tim);
+                                String result = dbleacom.executeQuery(account,td,tim);
 
                                 JSONArray jsonArray = new JSONArray(result);
                                 int a=jsonArray.length();

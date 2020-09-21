@@ -1,4 +1,4 @@
-package com.cs.day;
+package com.cs.mydb;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -15,15 +15,15 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 
-public class dbleanoti {
-    public static String executeQuery(String account) {
+public class dbemp {
+    public static String executeQuery(String emp_id) {
         String result = "";
        
         try { 
             HttpClient httpClient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost("https://demo.chansing.com.tw/off/leanotiapp.php");
+            HttpPost httpPost = new HttpPost("https://demo.chansing.com.tw/off/empapp.php");
             ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("emp_id", account));
+            params.add(new BasicNameValuePair("emp_id", emp_id));
            
             httpPost.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
             HttpResponse httpResponse = httpClient.execute(httpPost);

@@ -4,7 +4,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 
 import android.view.Gravity;
@@ -30,7 +29,11 @@ import java.util.List;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.view.View;
+import com.cs.control.GlobalVariable;
+import com.cs.mydb.dbcheck;
+import com.cs.mydb.dbleadel;
+import com.cs.mydb.dbleasel;
+import com.cs.mydb.dbleaud;
 
 public class Deloff extends AppCompatActivity {
     private ImageView okbtn,fin;
@@ -75,7 +78,7 @@ public class Deloff extends AppCompatActivity {
         list = new ArrayList<String>();
         try{   //dbleasel
 
-            String result =dbleasel.executeQuery(account,fDate);
+            String result = dbleasel.executeQuery(account,fDate);
             JSONArray jsonArray = new JSONArray(result);
            // show.setText("a"+":"+account);
 
@@ -152,7 +155,7 @@ public class Deloff extends AppCompatActivity {
                                 if(!manager.contains("A") || !manager.contains("B")
                                         || !manager.contains("C"))
                                 {
-                                    String r2 =dbcheck.executeQuery(emp_id);
+                                    String r2 = dbcheck.executeQuery(emp_id);
                                     JSONArray jsonArr2 = new JSONArray(r2);
                                     for(int j = 0; j < jsonArr2.length(); j++)
                                     {
