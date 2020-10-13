@@ -147,6 +147,7 @@ public class Deloff extends AppCompatActivity {
                             myname=jsonData.getString("name");
                             reason=jsonData.getString("reason");
                             String lea_id=jsonData.getString("lea_id");
+                            String mylog=jsonData.getString("mylog");
                             hruselea=jsonData.getString("hruse");
 
                             if(!type.contains("特休"))
@@ -162,7 +163,8 @@ public class Deloff extends AppCompatActivity {
                                         JSONObject jsonData2 = jsonArr2.getJSONObject(j);
                                         String cmanager=jsonData2.getString("manager");
                                         //      show.setText(cmanager);
-                                        dbleaud.executeQuery(emp_id,lea_id,"1",cmanager);
+                                        mylog+=fDate+"取消請假"+"\n";
+                                        dbleaud.executeQuery(emp_id,lea_id,"1",cmanager,mylog);
 
                                     }
                                     //
@@ -182,7 +184,8 @@ public class Deloff extends AppCompatActivity {
                                         JSONObject jsonData2 = jsonArr2.getJSONObject(j);
                                         String cmanager=jsonData2.getString("manager");
                                         //    show.setText(cmanager);
-                                        dbleaud.executeQuery(emp_id,lea_id,"1",cmanager);
+                                        mylog+=fDate+"取消請假"+"\n";
+                                        dbleaud.executeQuery(emp_id,lea_id,"1",cmanager,mylog);
 
                                     }
                                 }

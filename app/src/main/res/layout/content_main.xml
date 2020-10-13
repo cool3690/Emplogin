@@ -11,35 +11,39 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/cs_bg"
+        android:background="@drawable/cs_bg2"
 
         >
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="fill_parent"
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="80dp"
-            android:gravity="center_horizontal"
-            android:text="全興請假登入系統"
-            android:textColor="#FFF"
-            android:textSize="24dp" />
+            app:srcCompat="@drawable/cs_logo"
+            android:layout_marginTop="44dp"/>
 
+
+        <ImageView
+            android:id="@+id/mytext"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@id/logo"
+            android:layout_marginTop="15dp"
+            app:srcCompat="@drawable/cs_logintext" />
 
         <EditText
             android:id="@+id/acc"
             android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView1"
+            android:layout_height="60dp"
+            android:layout_below="@+id/mytext"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="44dp"
             android:ems="10"
-            android:hint="帳號"
+            android:gravity="center"
             android:maxLength="6"
+            android:background="@drawable/cs_acc"
             android:textColor="#FFF"
             android:inputType="textCapCharacters"
+            android:hint="帳號"
             android:textColorHint="#FFF">
 
         </EditText>
@@ -47,13 +51,14 @@
         <EditText
             android:id="@+id/pwd"
             android:layout_width="250dp"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_below="@+id/acc"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="41dp"
+            android:layout_marginTop="15dp"
             android:ems="10"
-
+            android:background="@drawable/cs_acc"
             android:hint="密碼"
+            android:gravity="center"
             android:inputType="textPassword"
             android:textColor="#FFF"
             android:textColorHint="#FFF" />
@@ -62,9 +67,9 @@
             android:id="@+id/show"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textView1"
+            android:layout_below="@+id/mytext"
             android:gravity="center"
-            android:layout_alignLeft="@+id/textView1"
+
             android:layout_marginTop="26dp"
             android:text=" "
             android:textColor="#FFF" />
@@ -78,9 +83,9 @@
 
             <ImageView
                 android:id="@+id/login"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_weight="1"
+                android:layout_width="250dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
                 app:srcCompat="@drawable/cs_login" />
             <!--
                         <ImageView

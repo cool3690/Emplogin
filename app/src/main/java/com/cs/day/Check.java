@@ -29,7 +29,9 @@ import com.cs.mydb.dbleave2;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -49,6 +51,8 @@ public class Check extends AppCompatActivity {
     int count;
     Dialog dia;
     Context context;
+    Date cDate = new Date();
+    String fDate = new SimpleDateFormat("yyyy-MM-dd").format(cDate);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -205,6 +209,7 @@ public class Check extends AppCompatActivity {
                             String start_d=jsonData.getString("start_d");
                             hruselea=jsonData.getString("hruse");
                             String lea_id=jsonData.getString("lea_id");
+                            String mylog=jsonData.getString("mylog");
                             String notes=jsonData.getString("notes");
                             //show.setText(start_d);
                             if(substitute.contains("A")&&substitute.equals(account)
@@ -212,11 +217,12 @@ public class Check extends AppCompatActivity {
                                     ||substitute.contains("C")&&substitute.equals(account))
                             {
                                 if(notes.equals("1"))
-                                {
-                                    dbleaup.executeQuery(emp_id,name,null,lea_id,"2");
+                                {mylog+=fDate+name+"確認"+"\n";
+                                    dbleaup.executeQuery(emp_id,name,null,lea_id,"2",mylog);
                                 }
                                 else if(notes.equals("")){
-                                    dbleaup.executeQuery(emp_id,name,null,lea_id,""); //update簽核
+                                    mylog+=fDate+name+"確認"+"\n";
+                                    dbleaup.executeQuery(emp_id,name,null,lea_id,"",mylog); //update簽核
                                 }
                             }
                             else if(!substitute.contains("A")&&manager.equals(account)
@@ -224,11 +230,12 @@ public class Check extends AppCompatActivity {
                                     ||!substitute.contains("C")&&manager.equals(account))
                             {
                                 if(notes.equals("1"))
-                                {
-                                    dbleaup.executeQuery(emp_id,null,name,lea_id,"2");
+                                {mylog+=fDate+name+"簽核"+"\n";
+                                    dbleaup.executeQuery(emp_id,null,name,lea_id,"2",mylog);
                                 }
                                 else if(notes.equals("")){
-                                    dbleaup.executeQuery(emp_id,null,name,lea_id,""); //update簽核
+                                    mylog+=fDate+name+"簽核"+"\n";
+                                    dbleaup.executeQuery(emp_id,null,name,lea_id,"3",mylog); //update簽核
                                 }
 
                                 String ans= dbemp.executeQuery(emp_id);//db emp 員工資料表

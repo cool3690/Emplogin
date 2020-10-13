@@ -17,7 +17,7 @@ import org.apache.http.protocol.HTTP;
 
 public class dbleaup {
 public static String executeQuery(String account,String substitute,
-		String manager,String lea_id,String notes)
+		String manager,String lea_id,String notes,String mylog)
     { 
     	String result ="";
     	 
@@ -32,6 +32,7 @@ public static String executeQuery(String account,String substitute,
        //params.add(new BasicNameValuePair("start_d", start_d));
        params.add(new BasicNameValuePair("lea_id", lea_id));
        params.add(new BasicNameValuePair("notes", notes));
+       params.add(new BasicNameValuePair("mylog", mylog));
        httpPost.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
         HttpResponse httpResponse = httpClient.execute(httpPost);
         //view_account.setText(httpResponse.getStatusLine().toString());
