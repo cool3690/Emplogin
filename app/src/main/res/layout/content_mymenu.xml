@@ -60,20 +60,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/cs_bulletin2" />
+            android:src="@drawable/cs_40" />
 
         <ImageView
             android:id="@+id/bt5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/cs_dayoff" />
+            android:src="@drawable/cs_41" />
         <ImageView
             android:id="@+id/bt6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/cs_logout2" />
+            android:src="@drawable/cs_42" />
 
     </LinearLayout>
         <LinearLayout
@@ -89,20 +89,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@drawable/cs_bulletin2" />
+                android:src="@drawable/cs_43" />
 
             <ImageView
                 android:id="@+id/bt8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@drawable/cs_dayoff" />
+                android:src="@drawable/cs_44" />
             <ImageView
                 android:id="@+id/bt9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@drawable/cs_logout2" />
+                android:src="@drawable/cs_45" />
 
         </LinearLayout>
     </RelativeLayout>
