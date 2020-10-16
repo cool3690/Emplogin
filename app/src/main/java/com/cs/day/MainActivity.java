@@ -186,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
                 show.setText("歡迎 "+name);
 
                 Intent intent=new Intent();
-                intent.setClass(MainActivity.this,Empmenu.class);
+                intent.setClass(MainActivity.this,Mymenu.class);
                 //Class.forName(b)
                 GlobalVariable gv = (GlobalVariable)getApplicationContext();
                 gv.setEmpacc(account);

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Mymenu"
+    tools:showIn="@layout/mymenu"
+    android:background="@drawable/cs_bg2">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/cs_menubg">
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/cs_menucover"/>
+
+        <LinearLayout
+        android:id="@+id/L1"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_below="@id/img"
+
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/bulletin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/cs_bulletin2" />
+
+        <ImageView
+            android:id="@+id/dayoff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/cs_dayoff" />
+        <ImageView
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/cs_logout2" />
+
+    </LinearLayout>
+        <LinearLayout
+        android:id="@+id/L2"
+        android:layout_width="match_parent"
+        android:layout_height="138dp"
+        android:layout_below="@id/L1"
+
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/sett"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/cs_bulletin2" />
+
+        <ImageView
+            android:id="@+id/bt5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/cs_dayoff" />
+        <ImageView
+            android:id="@+id/bt6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/cs_logout2" />
+
+    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/L3"
+            android:layout_width="match_parent"
+            android:layout_height="138dp"
+            android:layout_below="@id/L2"
+
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/bt7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/cs_bulletin2" />
+
+            <ImageView
+                android:id="@+id/bt8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/cs_dayoff" />
+            <ImageView
+                android:id="@+id/bt9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/cs_logout2" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -32,7 +32,7 @@
             android:label="@string/title_activity_search"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Menu"
+            android:name=".Mymenu"
             android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
