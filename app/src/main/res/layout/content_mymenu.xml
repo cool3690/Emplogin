@@ -11,7 +11,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/cs_menubg">
+        android:background="@drawable/cs_menubg2">
         <ImageView
             android:id="@+id/img"
             android:layout_width="match_parent"
@@ -31,22 +31,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/cs_bulletin2" />
+            android:src="@drawable/cs_bulletin3" />
 
         <ImageView
             android:id="@+id/dayoff"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/cs_dayoff" />
+            android:src="@drawable/cs_dayoff2" />
         <ImageView
             android:id="@+id/logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/cs_logout2" />
+            android:src="@drawable/cs_logout3" />
 
     </LinearLayout>
+
         <LinearLayout
         android:id="@+id/L2"
         android:layout_width="match_parent"
@@ -60,20 +61,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/cs_40" />
+            android:src="@drawable/cs_blank2" />
 
         <ImageView
             android:id="@+id/bt5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/cs_41" />
+            android:src="@drawable/cs_blank2" />
         <ImageView
             android:id="@+id/bt6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/cs_42" />
+            android:src="@drawable/cs_blank2" />
 
     </LinearLayout>
         <LinearLayout
@@ -89,22 +90,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@drawable/cs_43" />
+                android:src="@drawable/cs_blank2" />
 
             <ImageView
                 android:id="@+id/bt8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@drawable/cs_44" />
+                android:src="@drawable/cs_blank2" />
             <ImageView
                 android:id="@+id/bt9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@drawable/cs_45" />
+                android:src="@drawable/cs_blank2" />
 
         </LinearLayout>
+
     </RelativeLayout>
 
 

@@ -12,9 +12,9 @@ android:layout_height="match_parent">
         android:textColor="#fff"
         android:buttonTint="#fff"
         android:text="CheckedTextView"
-        android:checkMarkTint="#fff"
-        android:outlineSpotShadowColor="#fff"
-
+        android:checkMarkTint="#22cd7e"
+        android:outlineSpotShadowColor="#22cd7e"
+        android:lineSpacingMultiplier="1.5"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 <!-- android:checked="true"

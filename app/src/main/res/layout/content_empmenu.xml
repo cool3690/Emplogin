@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-        android:background="@drawable/cs_bg2">
+        android:background="@drawable/cs_bg3">
 
 
         <LinearLayout
@@ -22,63 +22,63 @@
 <TextView
     android:id="@+id/dayo"
     android:layout_width="wrap_content"
-    android:layout_height="100dp"
+    android:layout_height="98dp"
     android:text="      請假"
     android:textSize="28sp"
     android:textColor="#fff"
     android:gravity="center_vertical|left"
-    android:background="@drawable/cs_t46"
+    android:background="@drawable/cs_txtbtn"
     />
             <TextView
                 android:id="@+id/subsign"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="98dp"
                 android:text="      我的代理人"
                 android:textSize="28sp"
                 android:textColor="#fff"
                 android:gravity="center_vertical|left"
-                android:background="@drawable/cs_t47"
+                android:background="@drawable/cs_txtbtn"
                 />
             <TextView
                 android:id="@+id/signature"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="98dp"
                 android:text="      簽核"
                 android:textSize="28sp"
                 android:textColor="#fff"
                 android:gravity="center_vertical|left"
-                android:background="@drawable/cs_t48"
+                android:background="@drawable/cs_txtbtn"
                 />
 
             <TextView
                 android:id="@+id/del"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="98dp"
                 android:text="      請假取消"
                 android:textSize="28sp"
                 android:textColor="#fff"
                 android:gravity="center_vertical|left"
-                android:background="@drawable/cs_t49"
+                android:background="@drawable/cs_txtbtn"
                 />
             <TextView
                 android:id="@+id/search"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="98dp"
                 android:text="      請假查詢紀錄"
                 android:textSize="28sp"
                 android:textColor="#fff"
                 android:gravity="center_vertical|left"
-                android:background="@drawable/cs_t50"
+                android:background="@drawable/cs_txtbtn"
                 />
             <TextView
                 android:id="@+id/ret"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="98dp"
                 android:text="      登出"
                 android:textSize="28sp"
                 android:textColor="#fff"
                 android:gravity="center_vertical|left"
-                android:background="@drawable/cs_t50"
+                android:background="@drawable/cs_txtbtn"
                 />
 
 

@@ -137,27 +137,27 @@ List<String>record=new ArrayList<>();
                     serial_num=jsonData.getString("serial_num");
                     if(notes.equals("1")){
 
-                     Keka  keka = new Keka("\n"+serial_num+"\n[待銷假]  "+type+"/"+reason+"\n"+start_d+"/"+start_t+"\n"+end_d+"/"+end_t+"\n");
+                     Keka  keka = new Keka("\n"+serial_num+"\n[待銷假]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+"\n");
                         kekas.add(keka);
-                        record.add("\n"+serial_num+"\n[待銷假]  "+type+"/"+reason+"\n"+start_d+"/"+start_t+"\n"+end_d+"/"+end_t+"\n"+mylog);
+                        record.add("\n"+serial_num+"\n[待銷假]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+"\n"+mylog);
                     }
                     else if(notes.equals("2")){
 
-                        Keka  keka = new Keka("\n"+serial_num+"\n[已銷假]  "+type+"/"+reason+"\n"+start_d+"/"+start_t+"\n"+end_d+"/"+end_t+"\n");
+                        Keka  keka = new Keka("\n"+serial_num+"\n[已銷假]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+"\n");
                         kekas.add(keka);
-                        record.add("\n"+serial_num+"\n[已銷假]  "+type+"/"+reason+"\n"+start_d+"/"+start_t+"\n"+end_d+"/"+end_t+"\n"+mylog);
+                        record.add("\n"+serial_num+"\n[已銷假]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+"\n"+mylog);
                     }
                     else if(notes.equals("3")){
 
-                        Keka  keka = new Keka("\n"+serial_num+"\n[完成請假]  "+type+"/"+reason+"\n"+start_d+"/"+start_t+"\n"+end_d+"/"+end_t+"\n");
+                        Keka  keka = new Keka("\n"+serial_num+"\n[完成請假]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n"+end_d+"/"+end_t+"\n");
                         kekas.add(keka);
-                        record.add("\n"+serial_num+"\n[完成請假]  "+type+"/"+reason+"\n"+start_d+"/"+start_t+"\n"+end_d+"/"+end_t+"\n"+mylog);
+                        record.add("\n"+serial_num+"\n[完成請假]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+"\n"+mylog);
                     }
                     else if(notes.equals("")){
 
-                        Keka  keka = new Keka("\n"+serial_num+"\n[簽核中]  "+type+"/"+reason+"\n"+start_d+"/"+start_t+"\n"+end_d+"/"+end_t+"\n");
+                        Keka  keka = new Keka("\n"+serial_num+"\n[簽核中]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+"\n");
                         kekas.add(keka);
-                        record.add("\n"+serial_num+"\n[簽核中]  "+type+"/"+reason+"\n"+start_d+"/"+start_t+"\n"+end_d+"/"+end_t+"\n"+mylog);
+                        record.add("\n"+serial_num+"\n[簽核中]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+"\n"+mylog);
                     }
 
 

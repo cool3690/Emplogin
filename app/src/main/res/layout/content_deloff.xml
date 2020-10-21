@@ -11,58 +11,74 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="30dp"
         android:background="@drawable/cs_bg2">
 
         <ListView
             android:id="@+id/preferdel"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="400dp"
             android:layout_marginTop="10dp"
             android:textColor="#FFF"
+            android:lineSpacingMultiplier="2"
             android:layout_alignParentLeft="true"
             />
 
+<LinearLayout
+    android:id="@+id/L1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/preferdel"
+    android:paddingLeft="25dp"
+    android:orientation="vertical">
+    <EditText
+        android:id="@+id/rea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/preferdel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:hint="取消理由"
+
+        app:backgroundTint="#22cd7e"
+        android:textColorHint="#FFF"
+        android:textColor="#FFF"
+        android:ems="10" />
+    <TextView
+        android:id="@+id/show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/rea"
+        android:textColor="#FFF"
+        android:layout_marginLeft="22dp"
+        android:text=" " />
 
 
-        <EditText
-            android:id="@+id/rea"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/preferdel"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:hint="取消理由"
-            android:textColorHint="#FFF"
-            android:textColor="#FFF"
-            android:ems="10" />
-        <TextView
-            android:id="@+id/show"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+
+        android:layout_below="@id/L1">
+        <ImageView
+            android:id="@+id/fin"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_below="@id/rea"
-            android:textColor="#FFF"
-            android:layout_marginLeft="22dp"
-            android:text=" " />
-
-        <LinearLayout
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/cs_ret"/>
+        <ImageView
+            android:id="@+id/okbtndel"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_below="@id/show">
-            <ImageView
-                android:id="@+id/fin"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/cs_ret"/>
-            <ImageView
-                android:id="@+id/okbtndel"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/cs_cancel" />
-        </LinearLayout>
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/cs_cancel" />
+    </LinearLayout>
+</LinearLayout>
+
+
+
+
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

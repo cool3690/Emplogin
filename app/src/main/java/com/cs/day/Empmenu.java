@@ -54,10 +54,10 @@ public class Empmenu extends AppCompatActivity {
         public boolean onTouch(View view, MotionEvent motionEvent) {
             switch(motionEvent.getAction()){
                 case MotionEvent.ACTION_DOWN:
-                    subsign.setBackgroundResource(R.drawable.cs_t46h);
+                    subsign.setBackgroundResource(R.drawable.cs_txtbtnh);
                     break;
                 case  MotionEvent.ACTION_UP:
-                    subsign.setBackgroundResource(R.drawable.cs_t46);
+                    subsign.setBackgroundResource(R.drawable.cs_txtbtn);
                     dialog = new ProgressDialog(Empmenu.this);
                     dialog.setMessage("Loading...請稍後");
                     dialog.show();
@@ -75,11 +75,11 @@ public class Empmenu extends AppCompatActivity {
         public boolean onTouch(View view, MotionEvent motionEvent) {
             switch(motionEvent.getAction()){
                 case MotionEvent.ACTION_DOWN:
-                    dayo.setBackgroundResource(R.drawable.cs_t47h);
+                    dayo.setBackgroundResource(R.drawable.cs_txtbtnh);
                     break;
                 case  MotionEvent.ACTION_UP:
 
-                    dayo.setBackgroundResource(R.drawable.cs_t47);
+                    dayo.setBackgroundResource(R.drawable.cs_txtbtn);
                     dialog = new ProgressDialog(Empmenu.this);
                     dialog.setMessage("Loading...請稍後");
                     dialog.show();
@@ -98,10 +98,10 @@ public class Empmenu extends AppCompatActivity {
         public boolean onTouch(View view, MotionEvent motionEvent) {
             switch(motionEvent.getAction()){
                 case MotionEvent.ACTION_DOWN:
-                    signature.setBackgroundResource(R.drawable.cs_t48h);
+                    signature.setBackgroundResource(R.drawable.cs_txtbtnh);
                     break;
                 case  MotionEvent.ACTION_UP:
-                    signature.setBackgroundResource(R.drawable.cs_t48);
+                    signature.setBackgroundResource(R.drawable.cs_txtbtn);
                     dialog = new ProgressDialog(Empmenu.this);
                     dialog.setMessage("Loading...請稍後");
                     dialog.show();
@@ -119,10 +119,10 @@ public class Empmenu extends AppCompatActivity {
         public boolean onTouch(View view, MotionEvent motionEvent) {
             switch(motionEvent.getAction()){
                 case MotionEvent.ACTION_DOWN:
-                    del.setBackgroundResource(R.drawable.cs_t49h);
+                    del.setBackgroundResource(R.drawable.cs_txtbtnh);
                     break;
                 case  MotionEvent.ACTION_UP:
-                    del.setBackgroundResource(R.drawable.cs_t49);
+                    del.setBackgroundResource(R.drawable.cs_txtbtn);
                     dialog = new ProgressDialog(Empmenu.this);
                     dialog.setMessage("Loading...請稍後");
                     dialog.show();
@@ -143,10 +143,10 @@ public class Empmenu extends AppCompatActivity {
         public boolean onTouch(View view, MotionEvent motionEvent) {
             switch(motionEvent.getAction()){
                 case MotionEvent.ACTION_DOWN:
-                    search.setBackgroundResource(R.drawable.cs_t50h);
+                    search.setBackgroundResource(R.drawable.cs_txtbtnh);
                     break;
                 case  MotionEvent.ACTION_UP:
-                    search.setBackgroundResource(R.drawable.cs_t50);
+                    search.setBackgroundResource(R.drawable.cs_txtbtn);
                     Intent intent=new Intent();
                     intent.setClass(Empmenu.this,Search.class);
                     startActivity(intent);
@@ -173,10 +173,10 @@ public class Empmenu extends AppCompatActivity {
         public boolean onTouch(View view, MotionEvent motionEvent) {
             switch(motionEvent.getAction()){
                 case MotionEvent.ACTION_DOWN:
-                    ret.setBackgroundResource(R.drawable.cs_t50h);
+                    ret.setBackgroundResource(R.drawable.cs_txtbtnh);
                     break;
                 case  MotionEvent.ACTION_UP:
-                    ret.setBackgroundResource(R.drawable.cs_t50);
+                    ret.setBackgroundResource(R.drawable.cs_txtbtn);
                     Intent intent=new Intent();
                     intent.setClass(Empmenu.this,MainActivity.class);
                     startActivity(intent);
