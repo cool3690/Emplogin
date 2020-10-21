@@ -9,18 +9,22 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class Empmenu extends AppCompatActivity {
-    private ImageView dayo,signature,del,search,ret,subsign;
+    private TextView  dayo,signature,del,search,ret,subsign;
     private ProgressDialog dialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.empmenu);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
                 .detectDiskReads()
                 .detectDiskWrites()
@@ -32,12 +36,12 @@ public class Empmenu extends AppCompatActivity {
                 .penaltyLog()
                 .penaltyDeath()
                 .build());
-        dayo = (ImageView)findViewById(R.id.dayo);
-        signature = (ImageView)findViewById(R.id.signature);
-        del = (ImageView)findViewById(R.id.del);
-        ret = (ImageView)findViewById(R.id.ret);
-        search= (ImageView)findViewById(R.id.search);
-        subsign = (ImageView)findViewById(R.id.subsign);
+        dayo = (TextView)findViewById(R.id.dayo);
+        signature = (TextView)findViewById(R.id.signature);
+        del = (TextView)findViewById(R.id.del);
+        ret = (TextView)findViewById(R.id.ret);
+        search= (TextView)findViewById(R.id.search);
+        subsign = (TextView)findViewById(R.id.subsign);
         dayo.setOnTouchListener(getdayo);
         signature.setOnTouchListener(getsign);
         del.setOnTouchListener(getdel);
@@ -45,15 +49,15 @@ public class Empmenu extends AppCompatActivity {
         search.setOnTouchListener(searchbtn);
         subsign.setOnTouchListener(subsignbtn);
     }
-    private ImageView.OnTouchListener subsignbtn = new ImageView.OnTouchListener() {
+    private TextView.OnTouchListener subsignbtn = new TextView.OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
             switch(motionEvent.getAction()){
                 case MotionEvent.ACTION_DOWN:
-                    subsign.setImageResource(R.drawable.subsignh);
+                    subsign.setBackgroundResource(R.drawable.cs_t46h);
                     break;
                 case  MotionEvent.ACTION_UP:
-                    subsign.setImageResource(R.drawable.subsign);
+                    subsign.setBackgroundResource(R.drawable.cs_t46);
                     dialog = new ProgressDialog(Empmenu.this);
                     dialog.setMessage("Loading...請稍後");
                     dialog.show();
@@ -66,15 +70,16 @@ public class Empmenu extends AppCompatActivity {
         }
 
     };
-    private ImageView.OnTouchListener getdayo = new ImageView.OnTouchListener() {
+    private TextView.OnTouchListener getdayo = new TextView.OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
             switch(motionEvent.getAction()){
                 case MotionEvent.ACTION_DOWN:
-                    dayo.setImageResource(R.drawable.cs_offh);
+                    dayo.setBackgroundResource(R.drawable.cs_t47h);
                     break;
                 case  MotionEvent.ACTION_UP:
-                    dayo.setImageResource(R.drawable.cs_off);
+
+                    dayo.setBackgroundResource(R.drawable.cs_t47);
                     dialog = new ProgressDialog(Empmenu.this);
                     dialog.setMessage("Loading...請稍後");
                     dialog.show();
@@ -88,15 +93,15 @@ public class Empmenu extends AppCompatActivity {
 
     };
 
-    private ImageView.OnTouchListener getsign = new ImageView.OnTouchListener() {
+    private TextView.OnTouchListener getsign = new TextView.OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
             switch(motionEvent.getAction()){
                 case MotionEvent.ACTION_DOWN:
-                    signature.setImageResource(R.drawable.cs_signh);
+                    signature.setBackgroundResource(R.drawable.cs_t48h);
                     break;
                 case  MotionEvent.ACTION_UP:
-                    signature.setImageResource(R.drawable.cs_sign);
+                    signature.setBackgroundResource(R.drawable.cs_t48);
                     dialog = new ProgressDialog(Empmenu.this);
                     dialog.setMessage("Loading...請稍後");
                     dialog.show();
@@ -109,15 +114,15 @@ public class Empmenu extends AppCompatActivity {
         }
 
     };
-    private ImageView.OnTouchListener getdel = new ImageView.OnTouchListener() {
+    private TextView.OnTouchListener getdel = new TextView.OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
             switch(motionEvent.getAction()){
                 case MotionEvent.ACTION_DOWN:
-                    del.setImageResource(R.drawable.cs_cancelh);
+                    del.setBackgroundResource(R.drawable.cs_t49h);
                     break;
                 case  MotionEvent.ACTION_UP:
-                    del.setImageResource(R.drawable.cs_cancel);
+                    del.setBackgroundResource(R.drawable.cs_t49);
                     dialog = new ProgressDialog(Empmenu.this);
                     dialog.setMessage("Loading...請稍後");
                     dialog.show();
@@ -133,15 +138,15 @@ public class Empmenu extends AppCompatActivity {
 
 
     };
-    private ImageView.OnTouchListener searchbtn = new ImageView.OnTouchListener() {
+    private TextView.OnTouchListener searchbtn = new TextView.OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
             switch(motionEvent.getAction()){
                 case MotionEvent.ACTION_DOWN:
-                    search.setImageResource(R.drawable.cs_recordh);
+                    search.setBackgroundResource(R.drawable.cs_t50h);
                     break;
                 case  MotionEvent.ACTION_UP:
-                    search.setImageResource(R.drawable.cs_record);
+                    search.setBackgroundResource(R.drawable.cs_t50);
                     Intent intent=new Intent();
                     intent.setClass(Empmenu.this,Search.class);
                     startActivity(intent);
@@ -163,15 +168,15 @@ public class Empmenu extends AppCompatActivity {
             /* */
         }
     };
-    private ImageView.OnTouchListener getret = new ImageView.OnTouchListener() {
+    private TextView.OnTouchListener getret = new TextView.OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
             switch(motionEvent.getAction()){
                 case MotionEvent.ACTION_DOWN:
-                    ret.setImageResource(R.drawable.cs_logouth);
+                    ret.setBackgroundResource(R.drawable.cs_t50h);
                     break;
                 case  MotionEvent.ACTION_UP:
-                    ret.setImageResource(R.drawable.cs_logout);
+                    ret.setBackgroundResource(R.drawable.cs_t50);
                     Intent intent=new Intent();
                     intent.setClass(Empmenu.this,MainActivity.class);
                     startActivity(intent);

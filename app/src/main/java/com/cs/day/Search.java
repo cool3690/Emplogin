@@ -226,7 +226,7 @@ List<String>record=new ArrayList<>();
         super.onBackPressed();  // Always call the superclass method first
 
         Intent intent =new Intent();
-        intent.setClass(Search.this,MainActivity.class);
+        intent.setClass(Search.this,Empmenu.class);
         startActivity(intent);
     }
     @Override

@@ -64,6 +64,7 @@ public class Off extends AppCompatActivity {
         setContentView(R.layout.off);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle("www");
         /*
         Intent intent=this.getIntent();
         Bundle bundle=intent.getExtras();
@@ -597,7 +598,7 @@ public class Off extends AppCompatActivity {
     }
     private void showtime() {
         Calendar c = Calendar.getInstance();
-        new TimePickerDialog(Off.this, R.style.DatePickBackgroundColor, new TimePickerDialog.OnTimeSetListener(){
+        new TimePickerDialog(Off.this, R.style.DatePickBackgroundColor2, new TimePickerDialog.OnTimeSetListener(){
 
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
@@ -611,7 +612,7 @@ public class Off extends AppCompatActivity {
     }
     private void showtime2() {
         Calendar c = Calendar.getInstance();
-        new TimePickerDialog(Off.this, R.style.DatePickBackgroundColor, new TimePickerDialog.OnTimeSetListener(){
+        new TimePickerDialog(Off.this, R.style.DatePickBackgroundColor2, new TimePickerDialog.OnTimeSetListener(){
 
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {

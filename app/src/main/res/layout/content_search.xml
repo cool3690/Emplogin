@@ -10,7 +10,7 @@
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/cs_bg"
+    android:background="@drawable/cs_bg2"
     android:padding="20dp">
     <ListView
         android:id="@+id/mylist"
