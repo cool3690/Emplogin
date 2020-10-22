@@ -164,11 +164,11 @@ public class Check extends AppCompatActivity {
                 {
 
                     if(notes.equals("1"))
-                    {  list.add("\n"+serial_num+"\n"+"銷假:"+myname+"/"+type+"/"+reason+"\n起"+start_d+"/"+start_t+"\n至"+end_d+"/"+end_t+"\n");
+                    {  list.add("      流水號:"+serial_num+"\n      "+"銷假:"+myname+"/"+type+"/"+reason+"\n      開始:"+start_d+"/"+start_t+"\n      結束:"+end_d+"/"+end_t+"\n");
                         listShow.add(false);
                     }
                     else{
-                        list.add("\n"+serial_num+"\n"+myname+"/"+type+"/"+reason+"\n起"+start_d+"/"+start_t+"\n至"+end_d+"/"+end_t+"\n");
+                        list.add("      流水號:"+serial_num+"\n      請假:"+myname+"/"+type+"/"+reason+"\n      開始:"+start_d+"/"+start_t+"\n      結束:"+end_d+"/"+end_t+"\n");
                         listShow.add(false);
                     }
                 }

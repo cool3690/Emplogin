@@ -9,9 +9,9 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
     <application
         android:name="com.cs.control.GlobalVariable"
         android:allowBackup="true"
@@ -22,7 +22,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.cs.control.NotificationReceiver"></activity>
+        <activity
+            android:name="com.cs.Bulletin"
+            android:label="@string/title_activity_bulletin"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name="com.cs.control.NotificationReceiver" />
         <activity
             android:name=".Subsign"
             android:label="@string/title_activity_subsign"

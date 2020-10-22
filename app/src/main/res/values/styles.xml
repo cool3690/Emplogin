@@ -24,15 +24,19 @@
 
     <style name="DatePickBackgroundColor" parent="Theme.AppCompat.Light.Dialog">
         <item name="colorAccent">#22cd7e</item>                <!--header background-->
-        <item name="android:windowBackground">@color/cardview_dark_background</item>     <!--calendar background-->
+        <item name="android:windowBackground">@color/cardview_dark_background
+        </item>     <!--calendar background-->
         <item name="android:textColorPrimary">#fff</item> <!--days of the month-->
         <item name="android:textColorSecondary">#fff</item>    <!--days of the week-->
     </style>
+
     <style name="DatePickBackgroundColor2" parent="Theme.AppCompat.Light.Dialog">
         <item name="colorAccent">#22cd7e</item>                <!--header background-->
-        <item name="android:windowBackground">@color/cardview_dark_background</item>     <!--calendar background-->
+        <item name="android:windowBackground">@color/cardview_dark_background
+        </item>     <!--calendar background-->
 
     </style>
+
     <style name="edit_AlertDialog_style" parent="@android:style/Theme.Dialog">
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowIsTranslucent">true</item>
