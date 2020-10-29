@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="@drawable/cs_bg2">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/R1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/cs_btbg"
+        >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:textColor="#fff"
+            android:textSize="35sp"
+            android:text="iii" />
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:paddingLeft="22dp"
+            android:layout_marginTop="20dp"
+            android:textColor="#fff"
+            android:maxLines="1"
+            android:textSize="20sp"
+            android:text="中秋烤肉，歡迎大家出席..." />
+
+        <ImageView
+            android:id="@+id/btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/title"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            app:srcCompat="@drawable/cs_btbt" />
+        <ImageView
+            android:id="@+id/btline"
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"
+            android:layout_below="@+id/btn"
+            android:layout_marginLeft="20dp"
+            app:srcCompat="@drawable/cs_line"
+            android:layout_marginRight="20dp"
+           />
+        <TextView
+            android:id="@+id/depart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:layout_below="@id/btline"
+            android:layout_marginTop="5dp"
+
+            android:text="       管理部" />
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:layout_below="@id/btline"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:text="       2020/01/01" />
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/R1" >
+
+
+    </ListView>
+</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

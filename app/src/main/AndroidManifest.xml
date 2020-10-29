@@ -23,9 +23,13 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name="com.cs.Bulletin"
-            android:label="@string/title_activity_bulletin"
+            android:name=".Bulletinmore"
+            android:label="@string/title_activity_bulletinmore"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".Bulletin"
+            android:label="@string/title_activity_bulletin"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.cs.control.NotificationReceiver" />
         <activity
             android:name=".Subsign"
