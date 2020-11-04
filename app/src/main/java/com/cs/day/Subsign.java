@@ -165,11 +165,11 @@ public class Subsign extends AppCompatActivity {
                 {
 
                     if(notes.equals("1"))
-                    {  list.add("      流水號:"+serial_num+"\n      "+"取消請假:"+myname+"/"+type+"/"+reason+"\n      開始:"+start_d+"/"+start_t+"\n      結束:"+end_d+"/"+end_t+"\n");
+                    {  list.add("流水號:"+serial_num+"\n"+"取消請假:"+myname+"/"+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+"\n");
                         listShow.add(false);
                     }
                     else{
-                        list.add("      流水號:"+serial_num+"\n      請假:"+myname+"/"+type+"/"+reason+"\n      開始:"+start_d+"/"+start_t+"\n      結束:"+end_d+"/"+end_t+"\n");
+                        list.add("流水號:"+serial_num+"\n請假:"+myname+"/"+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+"\n");
                         listShow.add(false);
                     }
                 }
