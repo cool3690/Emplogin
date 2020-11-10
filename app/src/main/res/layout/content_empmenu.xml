@@ -71,6 +71,16 @@
                 android:background="@drawable/cs_txtbtn"
                 />
             <TextView
+                android:id="@+id/prog"
+                android:layout_width="match_parent"
+                android:layout_height="98dp"
+                android:text="      請假進度查詢"
+                android:textSize="28sp"
+                android:textColor="#fff"
+                android:gravity="center_vertical|left"
+                android:background="@drawable/cs_txtbtn"
+                />
+            <TextView
                 android:id="@+id/ret"
                 android:layout_width="match_parent"
                 android:layout_height="98dp"

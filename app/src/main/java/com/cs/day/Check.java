@@ -25,6 +25,7 @@ import com.cs.mydb.dbempcom;
 import com.cs.mydb.dbempup;
 import com.cs.mydb.dbleaup;
 import com.cs.mydb.dbleave2;
+import com.cs.mydb.dbleave2man;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -41,6 +42,7 @@ public class Check extends AppCompatActivity {
     private ImageView okbtn,fin;
     private TextView show;
     private ListView prefer;
+    Boolean check=false;
     String account,department,name,hr,pwd;
     String substitute="",manager="",emp_id="",type="",time="",hruselea="",serial_num="";
     String myname="",reason="";
@@ -48,6 +50,7 @@ public class Check extends AppCompatActivity {
     List<String> list;
     List<Boolean> listShow;
     private ProgressDialog dialog;
+
     int count;
     Dialog dia;
     Context context;
@@ -138,7 +141,7 @@ public class Check extends AppCompatActivity {
     }
     public void mydb(){
         try{
-            String result = dbleave2.executeQuery(account);
+            String result = dbleave2man.executeQuery(account);
             JSONArray jsonArray = new JSONArray(result);
             for(int i = 0; i < jsonArray.length(); i++) //代理或主管有工號者顯示
             {	 JSONObject jsonData = jsonArray.getJSONObject(i);
@@ -156,11 +159,12 @@ public class Check extends AppCompatActivity {
                 String end_d=jsonData.getString("end_d");
                 String start_t=jsonData.getString("start_t");
                 String end_t=jsonData.getString("end_t");
-                show.setText(notes);
+                show.setText("");
 
                 //jsonData.getString("start_t").substring(0, 5)+"~";
-                if(substitute.contains("A")&&substitute.equals(account)
-                        || !substitute.contains("A")&&manager.equals(account))
+
+                //substitute.contains("A")&&substitute.equals(account) ||
+                if(!substitute.contains("A")&&manager.equals(account))
                 {
 
                     if(notes.equals("1"))
@@ -190,7 +194,7 @@ public class Check extends AppCompatActivity {
                 case  MotionEvent.ACTION_UP:
                     okbtn.setImageResource(R.drawable.cs_sign);
                     try{
-                        String result =dbleave2.executeQuery(account);//代理或主管有工號者顯示
+                        String result =dbleave2man.executeQuery(account);//代理或主管有工號者顯示
 
                         JSONArray jsonArray = new JSONArray(result);
                         count=prefer.getCount();// for(int i=0;i<listShow.size();i++)
@@ -219,10 +223,12 @@ public class Check extends AppCompatActivity {
                                 if(notes.equals("1"))
                                 {mylog+=fDate+name+"確認"+"\n";
                                     dbleaup.executeQuery(emp_id,name,null,lea_id,"2",mylog);
+                                    check=true;
                                 }
-                                else if(notes.equals("")){
+                                else if(notes.equals("0")){
                                     mylog+=fDate+name+"確認"+"\n";
                                     dbleaup.executeQuery(emp_id,name,null,lea_id,"",mylog); //update簽核
+                                    check=true;
                                 }
                             }
                             else if(!substitute.contains("A")&&manager.equals(account)
@@ -232,10 +238,12 @@ public class Check extends AppCompatActivity {
                                 if(notes.equals("1"))
                                 {mylog+=fDate+name+"簽核"+"\n";
                                     dbleaup.executeQuery(emp_id,null,name,lea_id,"2",mylog);
+                                    check=true;
                                 }
-                                else if(notes.equals("")){
+                                else if(notes.equals("0")){
                                     mylog+=fDate+name+"簽核"+"\n";
                                     dbleaup.executeQuery(emp_id,null,name,lea_id,"3",mylog); //update簽核
+                                    check=true;
                                 }
 
                                 String ans= dbemp.executeQuery(emp_id);//db emp 員工資料表
@@ -256,7 +264,7 @@ public class Check extends AppCompatActivity {
                                     String f=e+"";
                                     double g=Double.valueOf(myhr).doubleValue()-c;
                                     String h=g+"";
-                                    show.setText(type+"");
+                                    show.setText("");
                                     // show.setText(hruselea+"+"+hruse+"/"+b+" "+emp_id);
                                     if(type.equals("特休")){
                                         if(notes.equals("1"))
@@ -292,16 +300,20 @@ public class Check extends AppCompatActivity {
                                 }
                             }
                         }
-
+                            if(check && i == jsonArray.length()-1){
+                                mydialog();
+                                check=false;
+                            }
                         }
-                        mydialog();
+
 
                     }
 
                     catch(Exception e){}
-                    refresh();
+
                     break;
             }
+            refresh();
             return true;
         }
 

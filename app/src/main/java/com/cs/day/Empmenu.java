@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class Empmenu extends AppCompatActivity {
-    private TextView  dayo,signature,del,search,ret,subsign;
+    private TextView  dayo,signature,del,search,ret,subsign,prog;
     private ProgressDialog dialog;
 
     @Override
@@ -41,6 +41,7 @@ public class Empmenu extends AppCompatActivity {
         del = (TextView)findViewById(R.id.del);
         ret = (TextView)findViewById(R.id.ret);
         search= (TextView)findViewById(R.id.search);
+        prog= (TextView)findViewById(R.id.prog);
         subsign = (TextView)findViewById(R.id.subsign);
         dayo.setOnTouchListener(getdayo);
         signature.setOnTouchListener(getsign);
@@ -48,7 +49,29 @@ public class Empmenu extends AppCompatActivity {
         ret.setOnTouchListener(getret);
         search.setOnTouchListener(searchbtn);
         subsign.setOnTouchListener(subsignbtn);
+        prog.setOnTouchListener(progbtn);
     }
+    private TextView.OnTouchListener progbtn = new TextView.OnTouchListener() {
+        @Override
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            switch(motionEvent.getAction()){
+                case MotionEvent.ACTION_DOWN:
+                    prog.setBackgroundResource(R.drawable.cs_txtbtnh);
+                    break;
+                case  MotionEvent.ACTION_UP:
+                    prog.setBackgroundResource(R.drawable.cs_txtbtn);
+                    dialog = new ProgressDialog(Empmenu.this);
+                    dialog.setMessage("Loading...請稍後");
+                    dialog.show();
+                    Intent intent=new Intent();
+                    intent.setClass(Empmenu.this,Offprograss.class);
+                    startActivity(intent);
+                    break;
+            }
+            return true;
+        }
+
+    };
     private TextView.OnTouchListener subsignbtn = new TextView.OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {

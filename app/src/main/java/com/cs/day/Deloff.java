@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import android.content.Intent;
 
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 
 import android.widget.CheckedTextView;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -35,10 +37,11 @@ import com.cs.mydb.dbleadel;
 import com.cs.mydb.dbleasel;
 import com.cs.mydb.dbleaud;
 
-public class Deloff extends AppCompatActivity {
+public class Deloff extends AppCompatActivity {//取消請假
     private ImageView okbtn,fin;
     private TextView show;
     private ListView prefer;
+    boolean check=false;
     List<String> list;
     List<Boolean> listShow;
     // 這個用來記錄哪幾個 item 是被打勾的
@@ -49,7 +52,7 @@ public class Deloff extends AppCompatActivity {
     Context context;
     Date cDate = new Date();
     String fDate = new SimpleDateFormat("yyyy-MM-dd").format(cDate);
-
+    EditText rea;
     int count;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +68,7 @@ public class Deloff extends AppCompatActivity {
         fin.setOnTouchListener(finbtn);
         prefer=(ListView)findViewById(R.id.preferdel);
         show=(TextView)findViewById(R.id.show);
-
+        rea=(EditText) findViewById(R.id.rea);
         // 以多選範本 建立  ArrayAdapter
         GlobalVariable gv=(GlobalVariable)getApplicationContext();
         account=gv.getEmpacc();
@@ -98,6 +101,7 @@ public class Deloff extends AppCompatActivity {
                     String start_t=jsonData.getString("start_t");
                     String end_t=jsonData.getString("end_t");
                     String end_d=jsonData.getString("end_d");
+
                     if(notes.equals("1")){
                         /*
                         list.add("\n[待銷假]  "+type+"/"+reason+"\n"+start_d+"/"+start_t+"\n"+end_d+"/"+end_t+"\n");
@@ -149,11 +153,32 @@ public class Deloff extends AppCompatActivity {
                             String lea_id=jsonData.getString("lea_id");
                             String mylog=jsonData.getString("mylog");
                             hruselea=jsonData.getString("hruse");
-
+                            if(!TextUtils.isEmpty( rea.getText().toString())){
+                                reason= rea.getText().toString();
+                            }
+                            else{
+                                mytoast("請輸入取消理由");
+                                break;
+                            }
                             if(!type.contains("特休"))
                             {
-
-                                if(!manager.contains("A") || !manager.contains("B")
+                                if(manager.contains("A") || manager.contains("B")
+                                        || manager.contains("C"))
+                                {
+                                    String r2 = dbcheck.executeQuery(emp_id);
+                                    JSONArray jsonArr2 = new JSONArray(r2);
+                                    for(int j = 0; j < jsonArr2.length(); j++)
+                                    {
+                                        JSONObject jsonData2 = jsonArr2.getJSONObject(j);
+                                        String cmanager=jsonData2.getString("manager");
+                                        //      show.setText(cmanager);
+                                        mylog+=fDate+"請假作廢"+"\n";
+                                        dbleaud.executeQuery(emp_id,reason,lea_id,"2",cmanager,mylog+"取消理由:"+reason+"\n");
+                                        check=true;
+                                    }
+                                    //
+                                }
+                                else if(!manager.contains("A") || !manager.contains("B")
                                         || !manager.contains("C"))
                                 {
                                     String r2 = dbcheck.executeQuery(emp_id);
@@ -164,8 +189,8 @@ public class Deloff extends AppCompatActivity {
                                         String cmanager=jsonData2.getString("manager");
                                         //      show.setText(cmanager);
                                         mylog+=fDate+"取消請假"+"\n";
-                                        dbleaud.executeQuery(emp_id,lea_id,"1",cmanager,mylog);
-
+                                        dbleaud.executeQuery(emp_id,reason,lea_id,"1",cmanager,mylog+"取消理由:"+reason+"\n");
+                                        check=true;
                                     }
                                     //
                                 }
@@ -185,8 +210,8 @@ public class Deloff extends AppCompatActivity {
                                         String cmanager=jsonData2.getString("manager");
                                         //    show.setText(cmanager);
                                         mylog+=fDate+"取消請假"+"\n";
-                                        dbleaud.executeQuery(emp_id,lea_id,"1",cmanager,mylog);
-
+                                        dbleaud.executeQuery(emp_id,reason,lea_id,"1",cmanager,mylog+"取消理由:"+reason+"\n");
+                                        check=true;
                                     }
                                 }
                                 else{
@@ -197,12 +222,15 @@ public class Deloff extends AppCompatActivity {
                             }
 
                         }
+                        if(check && i == jsonArray.length()-1){
+                            mydialog();
+                        }
 
                         }
 
                         //   if(i ==jsonArray.length()-1){}
                         /**/
-                        mydialog();
+                       check=false;
 
 
 

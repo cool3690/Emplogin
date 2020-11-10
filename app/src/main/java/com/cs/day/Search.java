@@ -11,6 +11,7 @@ import android.os.Bundle;
 
 import com.cs.control.GlobalVariable;
 import com.cs.mydb.dbleasel;
+import com.cs.mydb.dbleaselall;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -119,7 +120,7 @@ List<String>record=new ArrayList<>();
         Date cDate = new Date();
         String fDate = new SimpleDateFormat("yyyy-01-01").format(cDate);
         try{
-            String result = dbleasel.executeQuery(account,fDate);
+            String result = dbleaselall.executeQuery(account,fDate);
             JSONArray jsonArray = new JSONArray(result);
             for(int i = 0; i < jsonArray.length(); i++) //代理或主管有工號者顯示
             {	 JSONObject jsonData = jsonArray.getJSONObject(i);
