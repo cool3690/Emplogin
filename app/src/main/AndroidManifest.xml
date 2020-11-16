@@ -21,11 +21,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        android:windowSoftInputMode="adjustUnspecified">
+        <activity
+            android:name="com.cs.daytest.Mymenutest"
+            android:label="@string/title_activity_mymenutest"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".Offprograss"
             android:label="@string/title_activity_offprograss"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Bulletinmore"
             android:label="@string/title_activity_bulletinmore"
@@ -62,7 +67,8 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustUnspecified" />
         <activity
             android:name=".Check"
             android:label="@string/title_activity_check"

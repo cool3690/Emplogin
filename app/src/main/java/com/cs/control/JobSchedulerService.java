@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.cs.day.MainActivity;
 import com.cs.day.R;
 import com.cs.mydb.dbleanoti;
+import com.cs.mydb.dbleanoti2;
 
 import org.json.JSONArray;
 
@@ -112,8 +113,6 @@ public class JobSchedulerService extends JobService {
 
 
             try {
-
-
                 String result = dbleanoti.executeQuery(account);
                 JSONArray jsonArray = new JSONArray(result);
                 if(jsonArray.length()>0) {
@@ -126,8 +125,24 @@ public class JobSchedulerService extends JobService {
                     handler.postDelayed(this, 1000);
 
                 }
-            } catch(Exception e) {}
 
+            } catch(Exception e) {}
+            ////////////////////////
+            try {
+                String result = dbleanoti2.executeQuery(account);
+                JSONArray jsonArray = new JSONArray(result);
+                if(jsonArray.length()>0) {
+                    // JSONObject jsonData = jsonArray.getJSONObject(i);
+                    testNotification(jsonArray.length()+"");
+                    showNotification(jsonArray.length()+"");
+                    i++;
+                    if(i==2)jobcancel=true;
+                    if(jobcancel){return;}
+                    handler.postDelayed(this, 1000);
+
+                }
+
+            } catch(Exception e) {}
 
 
 

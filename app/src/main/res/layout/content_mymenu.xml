@@ -64,11 +64,11 @@
             android:src="@drawable/cs_blank2" />
 
         <ImageView
-            android:id="@+id/bt5"
+            android:id="@+id/dayofftest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/cs_blank2" />
+            android:src="@drawable/cs_dayoff2" />
         <ImageView
             android:id="@+id/bt6"
             android:layout_width="wrap_content"

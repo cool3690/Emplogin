@@ -3,6 +3,7 @@ package com.cs.day;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.cs.daytest.Mymenutest;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -14,7 +15,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 public class Mymenu extends AppCompatActivity {
-    ImageView bulletin,dayoff,logout;
+    ImageView bulletin,dayoff,logout,dayofftest;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,12 +23,32 @@ public class Mymenu extends AppCompatActivity {
         bulletin=(ImageView)findViewById(R.id.bulletin);
         dayoff=(ImageView)findViewById(R.id.dayoff);
         logout=(ImageView)findViewById(R.id.logout);
+        dayofftest=(ImageView)findViewById(R.id.dayofftest);
         bulletin.setOnTouchListener(bulletinbtn);
         dayoff.setOnTouchListener(dayoffbtn);
         logout.setOnTouchListener(logoutbtn);
-
+        dayofftest.setOnTouchListener(dayofftestbtn);
 
     }
+    private ImageView.OnTouchListener dayofftestbtn=new ImageView.OnTouchListener(){
+        @Override
+        public boolean onTouch(View v, MotionEvent event){//test
+            switch (event.getAction()){
+
+                case MotionEvent.ACTION_DOWN:
+                    dayofftest.setImageResource(R.drawable.cs_dayoffh);
+
+                    break;
+                case MotionEvent.ACTION_UP:
+                    dayofftest.setImageResource(R.drawable.cs_dayoff2);
+                    Intent intent=new Intent();
+                    intent.setClass(Mymenu.this, Mymenutest.class);
+                    startActivity(intent);
+                    break;
+            }
+            return true;
+        }
+    };
     private ImageView.OnTouchListener bulletinbtn=new ImageView.OnTouchListener(){
         @Override
         public boolean onTouch(View v, MotionEvent event){//test
