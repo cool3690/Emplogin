@@ -20,7 +20,7 @@ android:orientation="vertical"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
 
-        android:text="-fffffffff"
+        android:text="- "
 
         android:paddingLeft="27dp"
         android:textColor="@color/cardview_light_background"

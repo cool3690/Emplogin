@@ -150,9 +150,28 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences remdname=getPreferences(Activity.MODE_PRIVATE);
         String name_str=remdname.getString("emp_id", "");
         String pass_str=remdname.getString("passwd", "");
-        acc.setText(name_str);
-        pwd.setText(pass_str);
+
+            acc.setText(name_str);
+            pwd.setText(pass_str);
+
+
+        acc.setOnClickListener(accbt);
+        pwd.setOnClickListener(pwdbt);
     }
+    public EditText.OnClickListener accbt=new EditText.OnClickListener(){
+        @Override
+        public void onClick(View view) {
+            acc.setHint("");
+            pwd.setHint("密碼");
+        }
+    };
+    public EditText.OnClickListener pwdbt=new EditText.OnClickListener(){
+        @Override
+        public void onClick(View view) {
+            pwd.setHint("");
+            acc.setHint("帳號");
+        }
+    };
     public void mydb(){
         String emp_id=acc.getText().toString();
         String passwd=pwd.getText().toString();

@@ -1,6 +1,4 @@
-package com.cs.day;
-
-import android.os.Bundle;
+package com.cs.daytest;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -10,6 +8,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
+import android.os.Bundle;
+
+import com.cs.control.GlobalVariable;
+import com.cs.day.Empmenu;
+import com.cs.day.Off;
+import com.cs.mydbtest.dbcheck;
+import com.cs.mydbtest.dbin;
+import com.cs.mydbtest.dbleacom;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -27,21 +39,16 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.cs.control.GlobalVariable;
-import com.cs.mydb.dbcheck;
-import com.cs.mydb.dbin;
-import com.cs.mydb.dbleacom;
+import com.cs.day.R;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
-public class Off extends AppCompatActivity {
-
+public class Offtest extends AppCompatActivity {
     private Spinner mychoice,sub;
     private EditText date1;
     private EditText date2;
@@ -61,19 +68,10 @@ public class Off extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.off);
+        setContentView(R.layout.offtest);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-       // toolbar.setTitle("www");
-        /*
-        Intent intent=this.getIntent();
-        Bundle bundle=intent.getExtras();
-        account=bundle.getString("ACCOUNT");
-        department=bundle.getString("DEPARTMENT");
-        name=bundle.getString("NAME");
-        hr=bundle.getString("HR");
 
-         */
         GlobalVariable gv=(GlobalVariable)getApplicationContext();
         account=gv.getEmpacc();
         department=gv.getEmpdepartment();
@@ -228,7 +226,7 @@ public class Off extends AppCompatActivity {
     }
     private void startDownload() {
 
-        new DownloadFileAsync().execute();
+        new Offtest.DownloadFileAsync().execute();
     }
     class DownloadFileAsync extends AsyncTask<String, String, String> {
         //  ProgressDialog dialog = new ProgressDialog(Listening.this);
@@ -237,7 +235,7 @@ public class Off extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             /*
-            dia = new Dialog(Off.this, R.style.edit_AlertDialog_style);
+            dia = new Dialog(Offtest.this, R.style.edit_AlertDialog_style);
             dia.setContentView(R.layout.imgshow);
 
             GifImageView imageView = (GifImageView) dia.findViewById(R.id.start_img);
@@ -258,7 +256,7 @@ public class Off extends AppCompatActivity {
 
 
              */
-            dialog = new ProgressDialog(Off.this);
+            dialog = new ProgressDialog(Offtest.this);
             dialog.setMessage("Loading...請稍後");
             dialog.show();
 
@@ -270,7 +268,7 @@ public class Off extends AppCompatActivity {
         protected String doInBackground(String... aurl) {
 
 
-            new Off.DownloadFileAsync().cancel(true);
+            new Offtest.DownloadFileAsync().cancel(true);
             return null;
         }
 
@@ -563,14 +561,14 @@ public class Off extends AppCompatActivity {
     };
     private void mydialog(){
         /*
-        new AlertDialog.Builder(Off.this)
+        new AlertDialog.Builder(Offtest.this)
                 .setTitle("確認視窗")
                 .setIcon(R.drawable.ic_launcher)
                 .setMessage("請假完成!")
                 .show();
 
          */
-        context = Off.this;
+        context = Offtest.this;
         dia = new Dialog(context, R.style.edit_AlertDialog_style);
         dia.setContentView(R.layout.imgshow);
         ImageView imageView = (ImageView) dia.findViewById(R.id.start_img);
@@ -592,13 +590,13 @@ public class Off extends AppCompatActivity {
     }
     private void mytoast(String str)
     {
-        Toast toast=Toast.makeText(Off.this, str, Toast.LENGTH_LONG);
+        Toast toast=Toast.makeText(Offtest.this, str, Toast.LENGTH_LONG);
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
     }
     private void showtime() {
         Calendar c = Calendar.getInstance();
-        new TimePickerDialog(Off.this, R.style.DatePickBackgroundColor2, new TimePickerDialog.OnTimeSetListener(){
+        new TimePickerDialog(Offtest.this, R.style.DatePickBackgroundColor2, new TimePickerDialog.OnTimeSetListener(){
 
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
@@ -612,7 +610,7 @@ public class Off extends AppCompatActivity {
     }
     private void showtime2() {
         Calendar c = Calendar.getInstance();
-        new TimePickerDialog(Off.this, R.style.DatePickBackgroundColor2, new TimePickerDialog.OnTimeSetListener(){
+        new TimePickerDialog(Offtest.this, R.style.DatePickBackgroundColor2, new TimePickerDialog.OnTimeSetListener(){
 
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
@@ -626,7 +624,7 @@ public class Off extends AppCompatActivity {
 
     private void showDatePickerDialog() {
         Calendar c = Calendar.getInstance();
-        new DatePickerDialog(Off.this, R.style.DatePickBackgroundColor,new DatePickerDialog.OnDateSetListener() {
+        new DatePickerDialog(Offtest.this, R.style.DatePickBackgroundColor,new DatePickerDialog.OnDateSetListener() {
 
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
@@ -645,7 +643,7 @@ public class Off extends AppCompatActivity {
 
     private void showDatePickerDialog2() {
         Calendar c = Calendar.getInstance();
-        new DatePickerDialog(Off.this, R.style.DatePickBackgroundColor, new DatePickerDialog.OnDateSetListener() {
+        new DatePickerDialog(Offtest.this, R.style.DatePickBackgroundColor, new DatePickerDialog.OnDateSetListener() {
 
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
@@ -682,7 +680,7 @@ public class Off extends AppCompatActivity {
                     break;
                 case  MotionEvent.ACTION_UP:
                     ret.setImageResource(R.drawable.cs_ret);
-                    Intent intent = new Intent(Off.this, Empmenu.class);
+                    Intent intent = new Intent(Offtest.this, Mymenutest.class);
                     startActivity(intent);
                     break;
             }
@@ -712,7 +710,7 @@ public class Off extends AppCompatActivity {
         super.onBackPressed();  // Always call the superclass method first
 
         Intent intent =new Intent();
-        intent.setClass(Off.this,Empmenu.class);
+        intent.setClass(Offtest.this, Empmenu.class);
         startActivity(intent);
     }
 

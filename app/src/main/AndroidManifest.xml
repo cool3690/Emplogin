@@ -24,9 +24,37 @@
         android:usesCleartextTraffic="true"
         android:windowSoftInputMode="adjustUnspecified">
         <activity
+            android:name="com.cs.daytest.Waitsigntest"
+            android:label="@string/title_activity_waitsigntest"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name="com.cs.daytest.Offprogresstest"
+            android:label="@string/title_activity_offprogresstest"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.cs.daytest.Searchtest"
+            android:label="@string/title_activity_searchtest"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.cs.daytest.Delofftest"
+            android:label="@string/title_activity_delofftest"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.cs.daytest.Checktest"
+            android:label="@string/title_activity_checktest"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.cs.daytest.Subsigntest"
+            android:label="@string/title_activity_subsigntest"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.cs.daytest.Offtest"
+            android:label="@string/title_activity_offtest"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name="com.cs.daytest.Mymenutest"
             android:label="@string/title_activity_mymenutest"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Offprograss"
             android:label="@string/title_activity_offprograss"

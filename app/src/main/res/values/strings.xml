@@ -44,4 +44,11 @@
     <string name="title_activity_bulletinmore">公佈欄</string>
     <string name="title_activity_offprograss">請假進度查詢</string>
     <string name="title_activity_mymenutest">請假測試</string>
+    <string name="title_activity_offtest">請假測試</string>
+    <string name="title_activity_subsigntest">代理人測試</string>
+    <string name="title_activity_checktest">簽核測試</string>
+    <string name="title_activity_delofftest">取消請假測試</string>
+    <string name="title_activity_searchtest">請假記錄查詢測試</string>
+    <string name="title_activity_offprogresstest">請假進度查詢</string>
+    <string name="title_activity_waitsigntest">待確認表單測試</string>
 </resources>

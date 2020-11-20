@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".Deloff"
-    tools:showIn="@layout/deloff">
-
-    <RelativeLayout
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingLeft="10dp"
         android:paddingRight="30dp"
+        android:fillViewport="true"
         android:background="@drawable/cs_bg2">
-
         <LinearLayout
             android:id="@+id/L1"
             android:layout_width="match_parent"
@@ -35,14 +31,16 @@
                 android:textColorHint="#FFF"
                 android:textColor="#FFF"
                 android:ems="10" />
-            <ListView
-                android:id="@+id/preferdel"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:textColor="#FFF"
-                android:lineSpacingMultiplier="2"
-                android:layout_alignParentLeft="true"
-                />
+        <ListView
+            android:id="@+id/preferdel"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+
+            android:textColor="#FFF"
+
+            android:lineSpacingMultiplier="2"
+            android:layout_alignParentLeft="true"
+            />
 
 
 
@@ -81,7 +79,5 @@
 
 
 
-
-
-    </RelativeLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

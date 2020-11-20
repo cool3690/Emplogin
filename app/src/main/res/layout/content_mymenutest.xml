@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:background="@drawable/cs_bg3">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/dayo"
+                android:layout_width="wrap_content"
+                android:layout_height="98dp"
+                android:text="      請假"
+                android:textSize="28sp"
+                android:textColor="#fff"
+                android:gravity="center_vertical|left"
+                android:background="@drawable/cs_txtbtn"
+                />
+            <TextView
+                android:id="@+id/subsign"
+                android:layout_width="match_parent"
+                android:layout_height="98dp"
+                android:text="      我的代理人"
+                android:textSize="28sp"
+                android:textColor="#fff"
+                android:gravity="center_vertical|left"
+                android:background="@drawable/cs_txtbtn"
+                />
+            <TextView
+                android:id="@+id/signature"
+                android:layout_width="match_parent"
+                android:layout_height="98dp"
+                android:text="      簽核"
+                android:textSize="28sp"
+                android:textColor="#fff"
+                android:gravity="center_vertical|left"
+                android:background="@drawable/cs_txtbtn"
+                />
+
+            <TextView
+                android:id="@+id/del"
+                android:layout_width="match_parent"
+                android:layout_height="98dp"
+                android:text="      請假取消"
+                android:textSize="28sp"
+                android:textColor="#fff"
+                android:gravity="center_vertical|left"
+                android:background="@drawable/cs_txtbtn"
+                />
+            <TextView
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="98dp"
+                android:text="      請假查詢紀錄"
+                android:textSize="28sp"
+                android:textColor="#fff"
+                android:gravity="center_vertical|left"
+                android:background="@drawable/cs_txtbtn"
+                />
+            <TextView
+                android:id="@+id/prog"
+                android:layout_width="match_parent"
+                android:layout_height="98dp"
+                android:text="      請假進度查詢"
+                android:textSize="28sp"
+                android:textColor="#fff"
+                android:gravity="center_vertical|left"
+                android:background="@drawable/cs_txtbtn"
+                />
+            <TextView
+                android:id="@+id/ret"
+                android:layout_width="match_parent"
+                android:layout_height="98dp"
+                android:text="      登出"
+                android:textSize="28sp"
+                android:textColor="#fff"
+                android:gravity="center_vertical|left"
+                android:background="@drawable/cs_txtbtn"
+                />
+
+
+
+        </LinearLayout>
+        <!-- -->
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

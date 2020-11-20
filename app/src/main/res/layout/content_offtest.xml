@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="@drawable/cs_bg2">
+    <LinearLayout
+        android:id="@+id/R1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/tt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+
+            android:text="- "
+
+            android:paddingLeft="27dp"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="18sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tt"
+            android:paddingRight="25dp"
+            android:paddingLeft="25dp"
+            android:gravity="center"
+            >
+
+
+            <Spinner
+                android:id="@+id/choice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_centerHorizontal="true"
+
+                android:textColorHint="@color/cardview_light_background"
+                android:textColor="@color/cardview_light_background"
+                android:layout_marginTop="1dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/L1"
+                android:layout_marginTop="20dp"
+
+                android:layout_below="@+id/choice">
+                <EditText
+                    android:id="@+id/date1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:layout_weight=".6"
+                    android:textColor="@color/cardview_light_background"
+                    android:textColorHint="@color/cardview_light_background"
+                    app:backgroundTint="#22cd7e"
+                    android:hint="起始請假日期" />
+
+                <EditText
+                    android:id="@+id/time1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:layout_weight=".5"
+                    android:textColor="@color/cardview_light_background"
+                    android:textColorHint="@color/cardview_light_background"
+                    app:backgroundTint="#22cd7e"
+                    android:hint="起始請假時間" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/L2"
+                android:layout_marginTop="20dp"
+
+                android:layout_below="@+id/L1">
+                <EditText
+                    android:id="@+id/date2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:layout_weight=".6"
+                    android:textColor="@color/cardview_light_background"
+                    android:textColorHint="@color/cardview_light_background"
+                    app:backgroundTint="#22cd7e"
+                    android:hint="最終請假日期"/>
+                <EditText
+                    android:id="@+id/time2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:layout_weight=".5"
+                    android:textColor="@color/cardview_light_background"
+                    android:textColorHint="@color/cardview_light_background"
+                    app:backgroundTint="#22cd7e"
+                    android:hint="最終請假時間" />
+
+
+
+            </LinearLayout>
+            <EditText
+                android:id="@+id/reason"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_below="@+id/L2"
+                android:layout_marginTop="25dp"
+                android:hint="請假事由"
+                android:textColor="@color/cardview_light_background"
+                android:textColorHint="@color/cardview_light_background"
+                app:backgroundTint="#22cd7e"
+                android:ems="10" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/L3"
+                android:layout_marginTop="20dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_below="@+id/reason">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/work_sans"
+                    android:text="代理人:  "
+                    android:textColor="@color/cardview_light_background" />
+                <Spinner
+                    android:id="@+id/sub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:textColor="@color/cardview_light_background"
+                    android:text="代理人" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/L4"
+                android:layout_below="@id/L3"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/ret"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="15dp"
+
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/cs_ret"
+                    android:text="返回" />
+                <ImageView
+                    android:id="@+id/confirm"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+
+                    android:layout_weight="1"
+                    android:layout_marginBottom="15dp"
+                    app:srcCompat="@drawable/cs_ok"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/L4"
+                android:layout_marginTop="10dp"
+                android:text="特休以30分鐘為單位,不滿30分自動以30分計算"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/ans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView2"
+                android:layout_marginTop="20dp"
+                android:text="."
+                android:textColor="@color/cardview_light_background"
+                android:textSize="16sp" />
+            <!--
+
+
+
+
+            -->
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

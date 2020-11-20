@@ -19,8 +19,8 @@ import android.widget.Toast;
 
 import com.cs.day.MainActivity;
 import com.cs.day.R;
-import com.cs.mydb.dbleanoti;
-import com.cs.mydb.dbleanoti2;
+import com.cs.mydbtest.dbleanoti;
+import com.cs.mydbtest.dbleanoti2;
 
 import org.json.JSONArray;
 

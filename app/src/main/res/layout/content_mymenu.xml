@@ -57,11 +57,11 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/sett"
+            android:id="@+id/oknai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/cs_blank2" />
+            android:src="@drawable/cs_dayoff" />
 
         <ImageView
             android:id="@+id/dayofftest"

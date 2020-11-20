@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.cs.daytest.Mymenutest;
+import com.cs.daytest.Waitsigntest;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -15,7 +16,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 public class Mymenu extends AppCompatActivity {
-    ImageView bulletin,dayoff,logout,dayofftest;
+    ImageView bulletin,dayoff,logout,dayofftest,oknai;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,12 +25,33 @@ public class Mymenu extends AppCompatActivity {
         dayoff=(ImageView)findViewById(R.id.dayoff);
         logout=(ImageView)findViewById(R.id.logout);
         dayofftest=(ImageView)findViewById(R.id.dayofftest);
+        oknai=(ImageView)findViewById(R.id.oknai);
         bulletin.setOnTouchListener(bulletinbtn);
         dayoff.setOnTouchListener(dayoffbtn);
         logout.setOnTouchListener(logoutbtn);
         dayofftest.setOnTouchListener(dayofftestbtn);
+        oknai.setOnTouchListener(oknaibtn);
 
     }
+    private ImageView.OnTouchListener oknaibtn=new ImageView.OnTouchListener(){
+        @Override
+        public boolean onTouch(View v, MotionEvent event){//test
+            switch (event.getAction()){
+
+                case MotionEvent.ACTION_DOWN:
+                    oknai.setImageResource(R.drawable.cs_dayoffh);
+
+                    break;
+                case MotionEvent.ACTION_UP:
+                    oknai.setImageResource(R.drawable.cs_dayoff2);
+                    Intent intent=new Intent();
+                    intent.setClass(Mymenu.this, Waitsigntest.class);
+                    startActivity(intent);
+                    break;
+            }
+            return true;
+        }
+    };
     private ImageView.OnTouchListener dayofftestbtn=new ImageView.OnTouchListener(){
         @Override
         public boolean onTouch(View v, MotionEvent event){//test
