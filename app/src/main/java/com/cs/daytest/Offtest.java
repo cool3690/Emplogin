@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -31,9 +32,11 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -595,31 +598,78 @@ public class Offtest extends AppCompatActivity {
         toast.show();
     }
     private void showtime() {
-        Calendar c = Calendar.getInstance();
-        new TimePickerDialog(Offtest.this, R.style.DatePickBackgroundColor2, new TimePickerDialog.OnTimeSetListener(){
+        context = Offtest.this;
+        dia = new Dialog(context, R.style.edit_AlertDialog_style);
+        dia.setContentView(R.layout.mydate);
+        TimePicker timepicker2 = (TimePicker) dia.findViewById(R.id.timepicker2);
+        Button ok=(Button)dia.findViewById(R.id.ok);
+        final NumberPicker minutePicker = timepicker2.findViewById(Resources.getSystem().getIdentifier(
+                "minute", "id", "android"));
+        final NumberPicker hourPicker = timepicker2.findViewById(Resources.getSystem().getIdentifier(
+                "hour", "id", "android"));
+        final String[] display = new String[] { "00", "30" };
+        final  String[] displayhour = new String[] { "8", "9","10","11","12","13","14","15","16","17" };
+        minutePicker.setMinValue(0);
+        minutePicker.setMaxValue(display.length - 1);
+        minutePicker.setDisplayedValues(display);
 
-            @Override
-            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                String tmp="",tmp2="";
-                if(hourOfDay<10){tmp="0"+hourOfDay;}else tmp=""+hourOfDay;
-                if(minute<10){tmp2="0"+minute;}else tmp2=""+minute;
-                time1.setText(tmp + ":" + tmp2);
-            }
+        hourPicker.setMinValue(0);
+        hourPicker.setMaxValue(displayhour.length - 1);
+        hourPicker.setDisplayedValues(displayhour);
 
-        },  c.get(Calendar.HOUR), c.get(Calendar.MINUTE), false).show();
+
+        dia.setCanceledOnTouchOutside(true); // Sets whether this dialog is
+        Window w = dia.getWindow();
+        WindowManager.LayoutParams lp = w.getAttributes();
+        lp.x = 0;
+        lp.y = 20;
+        dia.show();
+        dia.onWindowAttributesChanged(lp);
+        ok.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        time1.setText(displayhour[hourPicker.getValue()]+":"+display[minutePicker.getValue()]);
+                        dia.dismiss();
+                    }
+                });
     }
     private void showtime2() {
-        Calendar c = Calendar.getInstance();
-        new TimePickerDialog(Offtest.this, R.style.DatePickBackgroundColor2, new TimePickerDialog.OnTimeSetListener(){
+        context = Offtest.this;
+        dia = new Dialog(context, R.style.edit_AlertDialog_style);
+        dia.setContentView(R.layout.mydate);
+        TimePicker timepicker2 = (TimePicker) dia.findViewById(R.id.timepicker2);
+        Button ok=(Button)dia.findViewById(R.id.ok);
+        final NumberPicker minutePicker = timepicker2.findViewById(Resources.getSystem().getIdentifier(
+                "minute", "id", "android"));
+        final NumberPicker hourPicker = timepicker2.findViewById(Resources.getSystem().getIdentifier(
+                "hour", "id", "android"));
+        final String[] display = new String[] { "00", "30" };
+        final  String[] displayhour = new String[] { "8", "9","10","11","12","13","14","15","16","17" };
+        minutePicker.setMinValue(0);
+        minutePicker.setMaxValue(display.length - 1);
+        minutePicker.setDisplayedValues(display);
 
-            @Override
-            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                String tmp="",tmp2="";
-                if(hourOfDay<10){tmp="0"+hourOfDay;}else tmp=""+hourOfDay;
-                if(minute<10){tmp2="0"+minute;}else tmp2=""+minute;
-                time2.setText(tmp + ":" + tmp2);
-            }
-        },  c.get(Calendar.HOUR), c.get(Calendar.MINUTE), false).show();
+        hourPicker.setMinValue(0);
+        hourPicker.setMaxValue(displayhour.length - 1);
+        hourPicker.setDisplayedValues(displayhour);
+
+
+        dia.setCanceledOnTouchOutside(true); // Sets whether this dialog is
+        Window w = dia.getWindow();
+        WindowManager.LayoutParams lp = w.getAttributes();
+        lp.x = 0;
+        lp.y = 20;
+        dia.show();
+        dia.onWindowAttributesChanged(lp);
+        ok.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        time2.setText(displayhour[hourPicker.getValue()]+":"+display[minutePicker.getValue()]);
+                        dia.dismiss();
+                    }
+                });
     }
 
     private void showDatePickerDialog() {

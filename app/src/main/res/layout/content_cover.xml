@@ -12,12 +12,10 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/cover"
+        android:tileMode="repeat"
        >
 
-        <ImageView
-            android:id="@+id/img"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/cover" />
+
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

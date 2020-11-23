@@ -13,7 +13,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Cover extends AppCompatActivity {
-    private ImageView login,img;//,signature,del;
+    private ImageView login ;//,signature,del;
     private Timer timer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,9 +21,9 @@ public class Cover extends AppCompatActivity {
         setContentView(R.layout.cover);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        img=(ImageView)findViewById(R.id.img);
+
         timer = new Timer(true);
-        timer.schedule(timerTask, 2500, 2000); //延時1000ms後執行，1000ms執行一次
+        timer.schedule(timerTask, 500, 500); //延時1000ms後執行，1000ms執行一次
     }
     TimerTask timerTask = new TimerTask() {
         public void run() {

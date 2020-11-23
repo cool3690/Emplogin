@@ -1,5 +1,6 @@
 package com.cs.day;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 
 import android.app.DatePickerDialog;
@@ -22,6 +23,7 @@ import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -280,8 +282,8 @@ public class Off extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String unused)
-        { search();
-
+        {
+            search();
             if(dialog != null && dialog.isShowing()){
                 dialog.dismiss();
             }
@@ -616,12 +618,46 @@ public class Off extends AppCompatActivity {
 
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+
                 String tmp="",tmp2="";
+                try {
+
+                    NumberPicker minutePicker = view.findViewById(Resources.getSystem().getIdentifier(
+                            "minute", "id", "android"));
+
+                    String[] display = new String[] { "0", "30" };
+
+                    minutePicker.setMinValue(0);
+                    minutePicker.setMaxValue(display.length - 1);
+                    minutePicker.setDisplayedValues(display);
+                } catch (Exception ex) {
+
+                }
                 if(hourOfDay<10){tmp="0"+hourOfDay;}else tmp=""+hourOfDay;
+                if(minute<16 ||minute>45){minute=0;}
+                else {minute=30;}
                 if(minute<10){tmp2="0"+minute;}else tmp2=""+minute;
                 time2.setText(tmp + ":" + tmp2);
             }
+
+
         },  c.get(Calendar.HOUR), c.get(Calendar.MINUTE), false).show();
+
+    }
+    private void setInterval(TimePicker timePicker) {
+        try {
+
+            NumberPicker minutePicker = timePicker.findViewById(Resources.getSystem().getIdentifier(
+                    "minute", "id", "android"));
+
+            String[] display = new String[] { "0", "30" };
+
+            minutePicker.setMinValue(0);
+            minutePicker.setMaxValue(display.length - 1);
+            minutePicker.setDisplayedValues(display);
+        } catch (Exception ex) {
+            //  Log.d(TAG, ex.getMessage());
+        }
     }
 
     private void showDatePickerDialog() {

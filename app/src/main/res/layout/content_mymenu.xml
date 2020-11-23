@@ -61,19 +61,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/cs_dayoff" />
+            android:src="@drawable/cs_okna" />
 
-        <ImageView
-            android:id="@+id/dayofftest"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/cs_dayoff2" />
-        <ImageView
+            <ImageView
+                android:id="@+id/dayofftest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/cs_test" />
+
+            <ImageView
             android:id="@+id/bt6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight=".47"
             android:src="@drawable/cs_blank2" />
 
     </LinearLayout>

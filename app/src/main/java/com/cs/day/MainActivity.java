@@ -3,7 +3,10 @@ package com.cs.day;
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -11,6 +14,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.os.Handler;
 import android.os.PersistableBundle;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -35,12 +39,16 @@ import com.cs.mydb.db;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MainActivity extends AppCompatActivity {
     private ImageView login,img;//,signature,del;
     private EditText acc;
     private EditText pwd;
     private TextView show;
     private ProgressDialog dialog;
+    Timer timer = new Timer();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +78,15 @@ public class MainActivity extends AppCompatActivity {
 
 
         schedulejob();
-
+        ConnectivityManager connManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo info=connManager.getActiveNetworkInfo();
+        if (info == null || !info.isConnected())
+        {
+            mytoast("請開啟網路!");
+        }
+        else{
+            // schedulejob(h);
+        }
 
     }
 
@@ -86,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
      JobInfo jobInfo= new JobInfo.Builder(123,componentName)
              .setPersisted(true) // 重開機後是否執行
-             .setMinimumLatency(3000) // 延遲多久執行
+             .setMinimumLatency(1000) // 延遲多久執行
              .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY) //網路條件
              .setExtras(bundle)
              .build();
@@ -155,22 +171,28 @@ public class MainActivity extends AppCompatActivity {
             pwd.setText(pass_str);
 
 
-        acc.setOnClickListener(accbt);
-        pwd.setOnClickListener(pwdbt);
+        acc.setOnFocusChangeListener(accbt);
+        pwd.setOnFocusChangeListener(pwdbt);
     }
-    public EditText.OnClickListener accbt=new EditText.OnClickListener(){
+    public EditText.OnFocusChangeListener accbt=new EditText.OnFocusChangeListener(){
         @Override
-        public void onClick(View view) {
-            acc.setHint("");
-            pwd.setHint("密碼");
+        public void onFocusChange(View view, boolean hasFocus) {
+            if(hasFocus){
+                acc.setHint("");
+                pwd.setHint("密碼");
+            }
         }
+
     };
-    public EditText.OnClickListener pwdbt=new EditText.OnClickListener(){
+    public EditText.OnFocusChangeListener pwdbt=new EditText.OnFocusChangeListener(){
         @Override
-        public void onClick(View view) {
-            pwd.setHint("");
-            acc.setHint("帳號");
+        public void onFocusChange(View view, boolean hasFocus) {
+            if(hasFocus){
+                pwd.setHint("");
+                acc.setHint("帳號");
+            }
         }
+
     };
     public void mydb(){
         String emp_id=acc.getText().toString();
@@ -180,6 +202,15 @@ public class MainActivity extends AppCompatActivity {
         edit.putString("emp_id", acc.getText().toString());
         edit.putString("passwd", pwd.getText().toString());
         edit.commit();
+        ConnectivityManager connManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo info=connManager.getActiveNetworkInfo();
+        if (info == null || !info.isConnected())
+        {
+            mytoast("請開啟網路!");
+        }
+        else{
+
+
 
         try {
 
@@ -193,7 +224,16 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             JSONArray jsonArray = new JSONArray(result);
+            Runnable progressRunnable = new Runnable() {
 
+                @Override
+                public void run() {
+                    dialog.cancel();
+                }
+            };
+
+            Handler pdCanceller = new Handler();
+            pdCanceller.postDelayed(progressRunnable, 3000);
             for(int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonData = jsonArray.getJSONObject(i);
                 String str=jsonData.getString("emp_id");
@@ -218,12 +258,13 @@ public class MainActivity extends AppCompatActivity {
                 bundle.putString("ACCOUNT", account);
                 intent.putExtras(bundle);
 */
+                //timer.cancel();
                 startActivity(intent);
 
 
             }
         } catch(Exception e) {}
-
+    }
 
     }
     private void mytoast(String str)
@@ -238,16 +279,17 @@ public class MainActivity extends AppCompatActivity {
             switch (motionEvent.getAction()){
                 case MotionEvent.ACTION_DOWN:
                     login.setImageResource(R.drawable.cs_loginh);
-
+                    mydb();
                     break;
                 case MotionEvent.ACTION_UP:
                     dialog = new ProgressDialog(MainActivity.this);
                     dialog.setMessage("Loading...請稍後");
+
                     dialog.show();
                     login.setImageResource(R.drawable.cs_login);
 
 
-                  mydb();
+
                     break;
             }
             /**/
@@ -279,5 +321,11 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
+    @Override
+    public void onBackPressed() {
+        Intent a = new Intent(Intent.ACTION_MAIN);
+        a.addCategory(Intent.CATEGORY_HOME);
+        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(a);
+    }
 }

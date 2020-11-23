@@ -39,11 +39,11 @@ public class Mymenu extends AppCompatActivity {
             switch (event.getAction()){
 
                 case MotionEvent.ACTION_DOWN:
-                    oknai.setImageResource(R.drawable.cs_dayoffh);
+                    oknai.setImageResource(R.drawable.cs_okna2);
 
                     break;
                 case MotionEvent.ACTION_UP:
-                    oknai.setImageResource(R.drawable.cs_dayoff2);
+                    oknai.setImageResource(R.drawable.cs_okna);
                     Intent intent=new Intent();
                     intent.setClass(Mymenu.this, Waitsigntest.class);
                     startActivity(intent);
@@ -58,11 +58,11 @@ public class Mymenu extends AppCompatActivity {
             switch (event.getAction()){
 
                 case MotionEvent.ACTION_DOWN:
-                    dayofftest.setImageResource(R.drawable.cs_dayoffh);
+                    dayofftest.setImageResource(R.drawable.cs_test2);
 
                     break;
                 case MotionEvent.ACTION_UP:
-                    dayofftest.setImageResource(R.drawable.cs_dayoff2);
+                    dayofftest.setImageResource(R.drawable.cs_test);
                     Intent intent=new Intent();
                     intent.setClass(Mymenu.this, Mymenutest.class);
                     startActivity(intent);
