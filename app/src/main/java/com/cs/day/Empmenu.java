@@ -201,7 +201,7 @@ public class Empmenu extends AppCompatActivity {
                 case  MotionEvent.ACTION_UP:
                     ret.setBackgroundResource(R.drawable.cs_txtbtn);
                     Intent intent=new Intent();
-                    intent.setClass(Empmenu.this,MainActivity.class);
+                    intent.setClass(Empmenu.this,Mymenu.class);
                     startActivity(intent);
                     break;
             }

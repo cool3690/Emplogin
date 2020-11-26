@@ -81,7 +81,7 @@
                 android:id="@+id/ret"
                 android:layout_width="match_parent"
                 android:layout_height="98dp"
-                android:text="      登出"
+                android:text="      返回"
                 android:textSize="28sp"
                 android:textColor="#fff"
                 android:gravity="center_vertical|left"

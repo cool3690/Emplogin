@@ -214,7 +214,7 @@ public class Mymenutest extends AppCompatActivity {
                 case  MotionEvent.ACTION_UP:
                     ret.setBackgroundResource(R.drawable.cs_txtbtn);
                     Intent intent=new Intent();
-                    intent.setClass(Mymenutest.this,MainActivity.class);
+                    intent.setClass(Mymenutest.this,Mymenu.class);
                     startActivity(intent);
                     break;
             }

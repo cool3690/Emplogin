@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="特休以30分鐘為單位,不滿30分自動以30分計算"
+            android:text="請假以30分鐘為單位,不滿30分自動以30分計算"
             android:textColor="@color/cardview_light_background"
             android:textSize="16sp" />
         <RelativeLayout
