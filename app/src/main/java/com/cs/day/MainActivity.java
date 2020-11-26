@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         /* */
 
 
-        schedulejob();
+
         ConnectivityManager connManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo info=connManager.getActiveNetworkInfo();
         if (info == null || !info.isConnected())
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         else{
             // schedulejob(h);
         }
-
+        schedulejob();
     }
 
 
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
      JobInfo jobInfo= new JobInfo.Builder(123,componentName)
              .setPersisted(true) // 重開機後是否執行
-             .setMinimumLatency(1000) // 延遲多久執行
+             .setMinimumLatency(10000) // 延遲多久執行
              .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY) //網路條件
              .setExtras(bundle)
              .build();
@@ -280,12 +280,13 @@ public class MainActivity extends AppCompatActivity {
                 case MotionEvent.ACTION_DOWN:
                     login.setImageResource(R.drawable.cs_loginh);
                     mydb();
-                    break;
-                case MotionEvent.ACTION_UP:
                     dialog = new ProgressDialog(MainActivity.this);
                     dialog.setMessage("Loading...請稍後");
 
                     dialog.show();
+                    break;
+                case MotionEvent.ACTION_UP:
+
                     login.setImageResource(R.drawable.cs_login);
 
 

@@ -263,7 +263,7 @@ public class Empmenu extends AppCompatActivity {
         super.onBackPressed();  // Always call the superclass method first
 
         Intent intent =new Intent();
-        intent.setClass(Empmenu.this,MainActivity.class);
+        intent.setClass(Empmenu.this,Mymenu.class);
         startActivity(intent);
     }
 }

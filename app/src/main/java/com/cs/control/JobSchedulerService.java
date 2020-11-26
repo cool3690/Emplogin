@@ -70,11 +70,11 @@ public class JobSchedulerService extends JobService {
                 NOTYFI_REQUEST_ID,
                 intent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
-
+ //.setContentText("待簽表單有"+s+"張")
         NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         Notification.Builder builder = new Notification.Builder(this)
-                .setContentTitle("待簽表單")
-                .setContentText("待簽表單有"+s+"張")
+                .setContentTitle("待簽表單有"+s+"張")
+
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentIntent(pendingIntent);
@@ -146,7 +146,7 @@ public class JobSchedulerService extends JobService {
 
 
 
-                handler.postDelayed(this,3000000);
+                handler.postDelayed(this,600000000);
 
         }
     };

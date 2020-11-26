@@ -10,6 +10,7 @@ import android.os.Bundle;
 import com.cs.control.GlobalVariable;
 import com.cs.day.Check;
 import com.cs.day.Empmenu;
+import com.cs.day.Mymenu;
 import com.cs.day.RatesAdapter;
 import com.cs.mydbtest.dbemp;
 import com.cs.mydbtest.dbempcom;
@@ -391,7 +392,7 @@ public class Waitsigntest extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();  // Always call the superclass method first
         Intent intent =new Intent();
-        intent.setClass(Waitsigntest.this,Mymenutest.class);
+        intent.setClass(Waitsigntest.this, Mymenu.class);
         startActivity(intent);
     }
 

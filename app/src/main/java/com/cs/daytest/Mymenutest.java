@@ -8,6 +8,7 @@ import com.cs.day.Check;
 import com.cs.day.Deloff;
 import com.cs.day.Empmenu;
 import com.cs.day.MainActivity;
+import com.cs.day.Mymenu;
 import com.cs.day.Off;
 import com.cs.day.Offprograss;
 import com.cs.day.Search;
@@ -275,7 +276,7 @@ public class Mymenutest extends AppCompatActivity {
         super.onBackPressed();  // Always call the superclass method first
 
         Intent intent =new Intent();
-        intent.setClass(Mymenutest.this, MainActivity.class);
+        intent.setClass(Mymenutest.this, Mymenu.class);
         startActivity(intent);
     }
 }

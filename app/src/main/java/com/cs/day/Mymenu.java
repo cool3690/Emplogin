@@ -131,10 +131,9 @@ public class Mymenu extends AppCompatActivity {
 
     };
     @Override
-    public void onBackPressed() {
-        super.onBackPressed();  // Always call the superclass method first
-        Intent intent =new Intent();
-        intent.setClass(Mymenu.this,MainActivity.class);
-        startActivity(intent);
+    public void onBackPressed()
+    {
+
     }
+   
 }
