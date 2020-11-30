@@ -244,8 +244,7 @@ public class MainActivity extends AppCompatActivity {
                 String pwd=jsonData.getString("pwd");
                 show.setText("歡迎 "+name);
 
-                Intent intent=new Intent();
-                intent.setClass(MainActivity.this,Mymenu.class);
+
                 //Class.forName(b)
                 GlobalVariable gv = (GlobalVariable)getApplicationContext();
                 gv.setEmpacc(account);
@@ -259,7 +258,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtras(bundle);
 */
                 //timer.cancel();
-                startActivity(intent);
+
 
 
             }
@@ -279,14 +278,22 @@ public class MainActivity extends AppCompatActivity {
             switch (motionEvent.getAction()){
                 case MotionEvent.ACTION_DOWN:
                     login.setImageResource(R.drawable.cs_loginh);
+
+
+
+                    break;
+                case MotionEvent.ACTION_UP:
                     mydb();
                     dialog = new ProgressDialog(MainActivity.this);
                     dialog.setMessage("Loading...請稍後");
-
                     dialog.show();
-                    break;
-                case MotionEvent.ACTION_UP:
+                    GlobalVariable gv=(GlobalVariable)getApplicationContext();
+                    if(gv.getEmpacc()!=null && gv.getEmpdepartment()!=null && gv.getEmpname()!=null && gv.getEmphr()!=null){
+                        Intent intent=new Intent();
+                        intent.setClass(MainActivity.this,Mymenu.class);
+                        startActivity(intent);
 
+                    }
                     login.setImageResource(R.drawable.cs_login);
 
 

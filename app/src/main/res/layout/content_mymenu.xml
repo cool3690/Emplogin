@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/cs_bulletin3" />
+            android:src="@drawable/cs_bulletin2" />
 
         <ImageView
             android:id="@+id/dayoff"
@@ -68,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@drawable/cs_test" />
+                android:src="@drawable/cs_test2" />
 
             <ImageView
             android:id="@+id/bt6"

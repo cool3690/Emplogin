@@ -7,11 +7,14 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import com.cs.control.Drawkeka;
+import com.cs.control.DrawkekasAdapter;
 import com.cs.control.GlobalVariable;
 import com.cs.day.Empmenu;
 import com.cs.day.Keka;
 import com.cs.day.KekasAdapter;
 import com.cs.day.MainActivity;
+import com.cs.day.Mymenu;
 import com.cs.day.Offprograss;
 import com.cs.mydbtest.dbleaselall;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -45,7 +48,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Offprogresstest extends AppCompatActivity {
-    ArrayList<Keka> kekas = new ArrayList<Keka>();
+    ArrayList<Drawkeka> kekas = new ArrayList<Drawkeka>();
     ImageView ret;
     ListView mylist;
     String account,department,name,hr,pwd;
@@ -155,8 +158,10 @@ public class Offprogresstest extends AppCompatActivity {
                 manager=jsonData.getString("manager");
                 if(notes.equals("1")){
 
-                    Keka  keka = new Keka("流水號:"+serial_num+"\n[待銷假]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+" \n");
+                    Drawkeka  keka = new Drawkeka("流水號:"+serial_num+"\n[待銷假]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+" \n"
+                            ,"請假人:"+name,"代理人:"+substitute,"主管:"+manager,R.drawable.doth,R.drawable.plineh,R.drawable.doth,R.drawable.pline,R.drawable.dot);
                     kekas.add(keka);
+                 //,name,substitute,manager,R.drawable.doth,R.drawable.plineh,R.drawable.doth,R.drawable.pline,R.drawable.dot
                     record.add("\n流水號:"+serial_num+"\n[待銷假]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+"\n"+mylog);
                     state1.add(1);
                     state2.add(1);
@@ -173,7 +178,8 @@ public class Offprogresstest extends AppCompatActivity {
                         state1.add(1);
                         state2.add(0);
                         state3.add(0);
-                        Keka  keka = new Keka("流水號:"+serial_num+"\n[作廢]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+" \n");
+                        Drawkeka  keka = new Drawkeka("流水號:"+serial_num+"\n[作廢]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+" \n"
+                                ,"請假人:"+name,"代理人:"+substitute,"主管:"+manager,R.drawable.doth,R.drawable.pline,R.drawable.dot,R.drawable.pline,R.drawable.dot);
                         kekas.add(keka);
                         man.add(manager);
                         sub.add(substitute);
@@ -183,7 +189,8 @@ public class Offprogresstest extends AppCompatActivity {
                         state1.add(1);
                         state2.add(1);
                         state3.add(0);
-                        Keka  keka = new Keka("流水號:"+serial_num+"\n[待銷假]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+" \n");
+                        Drawkeka  keka = new Drawkeka("流水號:"+serial_num+"\n[待銷假]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+" \n"
+                                ,"請假人:"+name,"代理人:"+substitute,"主管:"+manager,R.drawable.doth,R.drawable.plineh,R.drawable.doth,R.drawable.pline,R.drawable.dot);
                         kekas.add(keka);
                         man.add(manager);
                         sub.add(substitute);
@@ -193,7 +200,8 @@ public class Offprogresstest extends AppCompatActivity {
                         state1.add(1);
                         state2.add(1);
                         state3.add(1);
-                        Keka  keka = new Keka("流水號:"+serial_num+"\n[已銷假]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+" \n");
+                        Drawkeka  keka = new Drawkeka("流水號:"+serial_num+"\n[已銷假]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+" \n"
+                                ,"請假人:"+name,"代理人:"+substitute,"主管:"+manager,R.drawable.doth,R.drawable.plineh,R.drawable.doth,R.drawable.plineh,R.drawable.doth);
                         kekas.add(keka);
                         man.add(manager);
                         sub.add(substitute);
@@ -204,7 +212,8 @@ public class Offprogresstest extends AppCompatActivity {
 
                 else if(notes.equals("3")){
 
-                    Keka  keka = new Keka("流水號:"+serial_num+"\n[完成請假]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+" \n");
+                    Drawkeka  keka = new Drawkeka("流水號:"+serial_num+"\n[完成請假]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+" \n"
+                            ,"請假人:"+name,"代理人:"+substitute,"主管:"+manager,R.drawable.doth,R.drawable.plineh,R.drawable.doth,R.drawable.plineh,R.drawable.doth);
                     kekas.add(keka);
                     record.add("\n流水號:"+serial_num+"\n[完成請假]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+"\n"+mylog);
                     state1.add(1);
@@ -215,7 +224,8 @@ public class Offprogresstest extends AppCompatActivity {
                 }
                 else if(notes.equals("")){
 
-                    Keka  keka = new Keka("流水號:"+serial_num+"\n[簽核中]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+" \n");
+                    Drawkeka  keka = new Drawkeka("流水號:"+serial_num+"\n[簽核中]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+" \n"
+                            ,"請假人:"+name,"代理人:"+substitute,"主管:"+manager,R.drawable.doth,R.drawable.pline,R.drawable.dot,R.drawable.pline,R.drawable.dot);
                     kekas.add(keka);
                     record.add("\n流水號:"+serial_num+"\n[簽核中]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+"\n"+mylog);
                     state1.add(1);
@@ -226,7 +236,8 @@ public class Offprogresstest extends AppCompatActivity {
                 }
                 else if(notes.equals("0")){
 
-                    Keka  keka = new Keka("流水號:"+serial_num+"\n[簽核中]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+" \n");
+                    Drawkeka  keka = new Drawkeka("流水號:"+serial_num+"\n[簽核中]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+" \n"
+                            ,"請假人:"+name,"代理人:"+substitute,"主管:"+manager,R.drawable.doth,R.drawable.plineh,R.drawable.doth,R.drawable.pline,R.drawable.dot);
                     kekas.add(keka);
                     record.add("\n流水號:"+serial_num+"\n[簽核中]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+"\n"+mylog);
                     state1.add(1);
@@ -238,7 +249,7 @@ public class Offprogresstest extends AppCompatActivity {
 
 
             }
-            final KekasAdapter adapter = new KekasAdapter(this, R.layout.keka, kekas);
+            final DrawkekasAdapter adapter = new DrawkekasAdapter(this, R.layout.drawkeka, kekas);
             mylist.setAdapter(adapter);
             mylist.setTextFilterEnabled(true);
             // listview.setSelector(R.drawable.green);
@@ -325,7 +336,7 @@ public class Offprogresstest extends AppCompatActivity {
                 case MotionEvent.ACTION_UP:
                     ret.setImageResource(R.drawable.cs_ret);
                     Intent intent =new Intent();
-                    intent.setClass(Offprogresstest.this, Empmenu.class);
+                    intent.setClass(Offprogresstest.this, Mymenutest.class);
                     startActivity(intent);
                     break;
             }

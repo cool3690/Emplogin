@@ -380,7 +380,7 @@ public class Waitsigntest extends AppCompatActivity {
                     break;
                 case  MotionEvent.ACTION_UP:
                     fin.setImageResource(R.drawable.cs_ret);
-                    Intent intent = new Intent(Waitsigntest.this, Mymenutest.class);
+                    Intent intent = new Intent(Waitsigntest.this, Mymenu.class);
                     startActivity(intent);
                     break;
             }

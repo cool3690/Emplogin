@@ -58,11 +58,11 @@ public class Mymenu extends AppCompatActivity {
             switch (event.getAction()){
 
                 case MotionEvent.ACTION_DOWN:
-                    dayofftest.setImageResource(R.drawable.cs_test2);
+                    dayofftest.setImageResource(R.drawable.cs_test);
 
                     break;
                 case MotionEvent.ACTION_UP:
-                    dayofftest.setImageResource(R.drawable.cs_test);
+                    dayofftest.setImageResource(R.drawable.cs_test2);
                     Intent intent=new Intent();
                     intent.setClass(Mymenu.this, Mymenutest.class);
                     startActivity(intent);
@@ -77,11 +77,11 @@ public class Mymenu extends AppCompatActivity {
             switch (event.getAction()){
 
                 case MotionEvent.ACTION_DOWN:
-                    bulletin.setImageResource(R.drawable.cs_bulletin2h);
+                    bulletin.setImageResource(R.drawable.cs_bulletin3);
 
                     break;
                 case MotionEvent.ACTION_UP:
-                    bulletin.setImageResource(R.drawable.cs_bulletin3);
+                    bulletin.setImageResource(R.drawable.cs_bulletin2h);
                     Intent intent=new Intent();
                     intent.setClass(Mymenu.this,Bulletin.class);
                     startActivity(intent);

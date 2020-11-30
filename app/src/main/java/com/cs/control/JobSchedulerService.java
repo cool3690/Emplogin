@@ -63,7 +63,7 @@ public class JobSchedulerService extends JobService {
     }
 
 
-    public void showNotification(String s) {
+    public void showNotification(String s) {//new
 
         Intent intent =new Intent(getApplicationContext(), MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(),
@@ -92,7 +92,7 @@ public class JobSchedulerService extends JobService {
         manager.notify(testNotifyId,
                 builder.build());
     }
-    private void testNotification(String s) {
+    private void testNotification(String s) {//old
         Notification.Builder builder = new Notification.Builder(this);
         builder.setSmallIcon(R.drawable.ic_launcher)
                 .setPriority(Notification.PRIORITY_HIGH)
@@ -106,12 +106,13 @@ public class JobSchedulerService extends JobService {
         NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         manager.notify(1, builder.build());
     }
+
     //@RequiresApi(api = Build.VERSION_CODES.O)
     private Runnable showTime = new Runnable() {
 
         public void run() {
 
-
+            /*
             try {
                 String result = dbleanoti.executeQuery(account);
                 JSONArray jsonArray = new JSONArray(result);
@@ -127,18 +128,23 @@ public class JobSchedulerService extends JobService {
                 }
 
             } catch(Exception e) {}
+
+             */
             ////////////////////////
             try {
                 String result = dbleanoti2.executeQuery(account);
                 JSONArray jsonArray = new JSONArray(result);
                 if(jsonArray.length()>0) {
                     // JSONObject jsonData = jsonArray.getJSONObject(i);
-                    testNotification(jsonArray.length()+"");
+                   // testNotification(jsonArray.length()+"");
                     showNotification(jsonArray.length()+"");
                     i++;
-                    if(i==2)jobcancel=true;
+                    if(i==1)jobcancel=true;
+                    if(i==10){jobcancel=false;
+                      i=i%10;
+                    }
                     if(jobcancel){return;}
-                    handler.postDelayed(this, 1000);
+                    handler.postDelayed(this, 360000000);
 
                 }
 
