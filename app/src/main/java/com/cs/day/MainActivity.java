@@ -283,17 +283,23 @@ public class MainActivity extends AppCompatActivity {
 
                     break;
                 case MotionEvent.ACTION_UP:
-                    mydb();
+
                     dialog = new ProgressDialog(MainActivity.this);
                     dialog.setMessage("Loading...請稍後");
                     dialog.show();
                     GlobalVariable gv=(GlobalVariable)getApplicationContext();
+
+                    if(gv.getEmpacc()==null || gv.getEmpdepartment()==null ||  gv.getEmpname()==null ||  gv.getEmphr()==null )
+                    {
+                        mydb();
+                    }
                     if(gv.getEmpacc()!=null && gv.getEmpdepartment()!=null && gv.getEmpname()!=null && gv.getEmphr()!=null){
                         Intent intent=new Intent();
                         intent.setClass(MainActivity.this,Mymenu.class);
                         startActivity(intent);
 
                     }
+
                     login.setImageResource(R.drawable.cs_login);
 
 

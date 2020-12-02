@@ -354,7 +354,7 @@ public class Waitsigntest extends AppCompatActivity {
     }
     private void refresh() {
         //finish();
-        Intent intent = new Intent(Waitsigntest.this, Check.class);
+        Intent intent = new Intent(Waitsigntest.this, Waitsigntest.class);
         startActivity(intent);
 
     }
