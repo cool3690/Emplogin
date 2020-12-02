@@ -81,7 +81,7 @@ public class Mymenu extends AppCompatActivity {
 
                     break;
                 case MotionEvent.ACTION_UP:
-                    bulletin.setImageResource(R.drawable.cs_bulletin2h);
+                    bulletin.setImageResource(R.drawable.cs_bulletin2);
                     Intent intent=new Intent();
                     intent.setClass(Mymenu.this,Bulletin.class);
                     startActivity(intent);
