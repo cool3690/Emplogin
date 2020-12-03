@@ -233,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
             };
 
             Handler pdCanceller = new Handler();
-            pdCanceller.postDelayed(progressRunnable, 3000);
+            pdCanceller.postDelayed(progressRunnable, 2000);
             for(int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonData = jsonArray.getJSONObject(i);
                 String str=jsonData.getString("emp_id");
@@ -289,7 +289,7 @@ public class MainActivity extends AppCompatActivity {
                     dialog.show();
                     GlobalVariable gv=(GlobalVariable)getApplicationContext();
 
-                    if(gv.getEmpacc()==null || gv.getEmpdepartment()==null ||  gv.getEmpname()==null ||  gv.getEmphr()==null )
+                    if(!acc.getText().toString().equals(gv.getEmpacc())|| gv.getEmpacc()==null || gv.getEmpdepartment()==null ||  gv.getEmpname()==null ||  gv.getEmphr()==null )
                     {
                         mydb();
                     }
