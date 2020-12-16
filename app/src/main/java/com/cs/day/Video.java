@@ -187,15 +187,15 @@ public class Video extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.video) {
+        if (id == R.id.action_settings) {
             Intent intent= new Intent();
-            intent.setClass(Video.this, MainActivity.class);
+            intent.setClass(Video.this, Mymenu.class);
             startActivity(intent);
             return true;
         }
         if (id == R.id.action_settings) {
             Intent intent= new Intent();
-            intent.setClass(Video.this, MainActivity.class);
+            intent.setClass(Video.this, Mymenu.class);
             startActivity(intent);
             return true;
         }

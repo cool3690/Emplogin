@@ -251,9 +251,9 @@ public class Mymenutest extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.video) {
+        if (id == R.id.action_settings) {
             Intent intent= new Intent();
-            intent.setClass(Mymenutest.this, MainActivity.class);
+            intent.setClass(Mymenutest.this, Mymenu.class);
 
             startActivity(intent);
             return true;

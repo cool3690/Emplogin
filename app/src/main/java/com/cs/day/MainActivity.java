@@ -16,6 +16,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.os.Handler;
 import android.os.PersistableBundle;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText pwd;
     private TextView show;
     private ProgressDialog dialog;
+    String ans="";
     Timer timer = new Timer();
 
     @Override
@@ -75,9 +77,14 @@ public class MainActivity extends AppCompatActivity {
 
         //startDownload();
         /* */
-
-
-
+        Intent intent=this.getIntent();
+        Bundle bundle=intent.getExtras();
+        if(intent != null && intent.getExtras() != null ) {
+            ans=bundle.getString("OUT");
+        }
+if(ans.equals("A")){
+    pwd.setText("");
+}
         ConnectivityManager connManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo info=connManager.getActiveNetworkInfo();
         if (info == null || !info.isConnected())
@@ -277,28 +284,37 @@ public class MainActivity extends AppCompatActivity {
         public boolean onTouch(View view, MotionEvent motionEvent) {
             switch (motionEvent.getAction()){
                 case MotionEvent.ACTION_DOWN:
-                    login.setImageResource(R.drawable.cs_loginh);
+
 
 
 
                     break;
                 case MotionEvent.ACTION_UP:
-
+                    login.setImageResource(R.drawable.cs_loginh);
                     dialog = new ProgressDialog(MainActivity.this);
                     dialog.setMessage("Loading...請稍後");
                     dialog.show();
                     GlobalVariable gv=(GlobalVariable)getApplicationContext();
 
-                    if(!acc.getText().toString().equals(gv.getEmpacc())|| gv.getEmpacc()==null || gv.getEmpdepartment()==null ||  gv.getEmpname()==null ||  gv.getEmphr()==null )
-                    {
-                        mydb();
+                    if(TextUtils.isEmpty(acc.getText().toString()) ||TextUtils.isEmpty(pwd.getText().toString())){
+                        mytoast("請輸入帳密!");
+                        dialog.dismiss();
                     }
-                    if(gv.getEmpacc()!=null && gv.getEmpdepartment()!=null && gv.getEmpname()!=null && gv.getEmphr()!=null){
-                        Intent intent=new Intent();
-                        intent.setClass(MainActivity.this,Mymenu.class);
-                        startActivity(intent);
+                    else{
+
+                        if(!acc.getText().toString().equals(gv.getEmpacc())||!pwd.getText().toString().equals(gv.getPasswd())|| gv.getEmpacc()==null || gv.getEmpdepartment()==null ||  gv.getEmpname()==null ||  gv.getEmphr()==null )
+                        {
+                            mydb();
+                        }
+                        if(gv.getEmpacc()!=null && gv.getEmpdepartment()!=null && gv.getEmpname()!=null && gv.getEmphr()!=null){
+                            Intent intent=new Intent();
+                            intent.setClass(MainActivity.this,Mymenu.class);
+                            startActivity(intent);
+
+                        }
 
                     }
+
 
                     login.setImageResource(R.drawable.cs_login);
 
@@ -325,7 +341,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 /**/
         //noinspection SimplifiableIfStatement
-        if (id == R.id.video) {
+        if (id == R.id.action_settings) {
             Intent intent= new Intent();
             intent.setClass(MainActivity.this, MainActivity.class);
 

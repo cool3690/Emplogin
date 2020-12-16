@@ -32,6 +32,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.cs.control.GlobalVariable;
+
+
 import com.cs.mydb.dbcheck;
 import com.cs.mydb.dbleadel;
 import com.cs.mydb.dbleasel;
@@ -60,8 +62,6 @@ public class Deloff extends AppCompatActivity {//取消請假
         setContentView(R.layout.deloff);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //pre[0]="";
-        // 取得介面元件
         okbtn=(ImageView)findViewById(R.id.okbtndel);
         okbtn.setOnTouchListener(checkok);
         fin=(ImageView)findViewById(R.id.fin);
@@ -81,9 +81,9 @@ public class Deloff extends AppCompatActivity {//取消請假
         list = new ArrayList<String>();
         try{   //dbleasel
 
-            String result = dbleasel.executeQuery(account,fDate);
+            String result = com.cs.mydb.dbleasel.executeQuery(account,fDate);
             JSONArray jsonArray = new JSONArray(result);
-           // show.setText("a"+":"+account);
+            // show.setText("a"+":"+account);
 
 
 
@@ -137,7 +137,7 @@ public class Deloff extends AppCompatActivity {//取消請假
                 case  MotionEvent.ACTION_UP:
                     okbtn.setImageResource(R.drawable.cs_cancel);
                     try{
-                        String result =dbleasel.executeQuery(account,fDate);
+                        String result = dbleasel.executeQuery(account,fDate);
                         JSONArray jsonArray = new JSONArray(result);
 
 
@@ -165,7 +165,7 @@ public class Deloff extends AppCompatActivity {//取消請假
                                 if(manager.contains("A") || manager.contains("B")
                                         || manager.contains("C"))
                                 {
-                                    String r2 = dbcheck.executeQuery(emp_id);
+                                    String r2 = com.cs.mydb.dbcheck.executeQuery(emp_id);
                                     JSONArray jsonArr2 = new JSONArray(r2);
                                     for(int j = 0; j < jsonArr2.length(); j++)
                                     {
@@ -173,7 +173,7 @@ public class Deloff extends AppCompatActivity {//取消請假
                                         String cmanager=jsonData2.getString("manager");
                                         //      show.setText(cmanager);
                                         mylog+=fDate+"請假作廢"+"\n";
-                                        dbleaud.executeQuery(emp_id,reason,lea_id,"2",cmanager,mylog+"取消理由:"+reason+"\n");
+                                        com.cs.mydb.dbleaud.executeQuery(emp_id,reason,lea_id,"2",cmanager,mylog+"取消理由:"+reason+"\n");
                                         check=true;
                                     }
                                     //
@@ -181,7 +181,7 @@ public class Deloff extends AppCompatActivity {//取消請假
                                 else if(!manager.contains("A") || !manager.contains("B")
                                         || !manager.contains("C"))
                                 {
-                                    String r2 = dbcheck.executeQuery(emp_id);
+                                    String r2 = com.cs.mydb.dbcheck.executeQuery(emp_id);
                                     JSONArray jsonArr2 = new JSONArray(r2);
                                     for(int j = 0; j < jsonArr2.length(); j++)
                                     {
@@ -189,12 +189,12 @@ public class Deloff extends AppCompatActivity {//取消請假
                                         String cmanager=jsonData2.getString("manager");
                                         //      show.setText(cmanager);
                                         mylog+=fDate+"取消請假"+"\n";
-                                        dbleaud.executeQuery(emp_id,reason,lea_id,"1",cmanager,mylog+"取消理由:"+reason+"\n");
+                                        com.cs.mydb.dbleaud.executeQuery(emp_id,reason,lea_id,"1",cmanager,mylog+"取消理由:"+reason+"\n");
                                         check=true;
                                     }
                                     //
                                 }
-                                else{ dbleadel.executeQuery(emp_id,lea_id);}
+                                else{ com.cs.mydb.dbleadel.executeQuery(emp_id,lea_id);}
                             }
 
                             else
@@ -202,7 +202,7 @@ public class Deloff extends AppCompatActivity {//取消請假
 
                                 if(!manager.contains("A")|| !manager.contains("B")
                                         || !manager.contains("C"))
-                                {String r2 =dbcheck.executeQuery(emp_id);
+                                {String r2 = dbcheck.executeQuery(emp_id);
                                     JSONArray jsonArr2 = new JSONArray(r2);
                                     for(int j = 0; j < jsonArr2.length(); j++)
                                     {
@@ -222,15 +222,15 @@ public class Deloff extends AppCompatActivity {//取消請假
                             }
 
                         }
-                        if(check && i == jsonArray.length()-1){
-                            mydialog();
-                        }
+                            if(check && i == jsonArray.length()-1){
+                                mydialog();
+                            }
 
                         }
 
                         //   if(i ==jsonArray.length()-1){}
                         /**/
-                       check=false;
+                        check=false;
 
 
 
@@ -259,7 +259,7 @@ public class Deloff extends AppCompatActivity {//取消請假
         dia = new Dialog(context, R.style.edit_AlertDialog_style);
         dia.setContentView(R.layout.imgshow);
         ImageView imageView = (ImageView) dia.findViewById(R.id.start_img);
-      //  imageView.setImageResource(R.drawable.cs_signshow);
+        //  imageView.setImageResource(R.drawable.cs_signshow);
         dia.setCanceledOnTouchOutside(true); // Sets whether this dialog is
         Window w = dia.getWindow();
         WindowManager.LayoutParams lp = w.getAttributes();
@@ -310,7 +310,7 @@ public class Deloff extends AppCompatActivity {//取消請假
             }
             return true;
         }
-        };
+    };
     private void mytoast(String str)
     {
         Toast toast=Toast.makeText(Deloff.this, str, Toast.LENGTH_LONG);

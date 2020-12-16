@@ -49,6 +49,7 @@
             android:layout_marginTop="10dp"
             android:layout_alignParentRight="true"
             android:text="2020/10/29" />
+
         <TextView
             android:id="@+id/content"
             android:layout_width="wrap_content"
@@ -56,12 +57,21 @@
             android:textColor="#fff"
             android:layout_below="@id/date"
             android:lineSpacingMultiplier="1.5"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:textSize="20sp"
             android:text="2018.12.26行政院環保署辦理全國「廢棄資源循
 環經濟評鑑」績優表揚及成果分享觀摩大會，「全
 興資源再生(股)公司」歷經初審、12位評鑑委員書
 審及現場評鑑等審查作業後得到最高等級的績優二
 星級殊榮。" />
+        <Button
+        android:id="@+id/bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/content"
+        android:layout_marginTop="10dp"
+            android:textColor="#fff"
+        android:background="#00000000"
+        android:text="更多資訊..."    />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

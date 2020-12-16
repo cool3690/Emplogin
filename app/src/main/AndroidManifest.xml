@@ -25,9 +25,13 @@
         android:usesCleartextTraffic="true"
         android:windowSoftInputMode="adjustUnspecified">
         <activity
+            android:name=".Phonebook"
+            android:label="@string/title_activity_phonebook"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name="com.cs.daytest.Waitsigntest"
             android:label="@string/title_activity_waitsigntest"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.cs.daytest.Offprogresstest"
             android:label="@string/title_activity_offprogresstest"

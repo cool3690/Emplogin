@@ -14,6 +14,7 @@ import com.cs.day.Empmenu;
 import com.cs.day.Keka;
 import com.cs.day.KekasAdapter;
 import com.cs.day.MainActivity;
+import com.cs.day.Mymenu;
 import com.cs.day.Search;
 import com.cs.mydbtest.dbleaselall;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -252,9 +253,9 @@ public class Searchtest extends AppCompatActivity {
         int id = item.getItemId();
         /**/
         //noinspection SimplifiableIfStatement
-        if (id == R.id.video) {
+        if (id == R.id.action_settings) {
             Intent intent= new Intent();
-            intent.setClass(Searchtest.this, MainActivity.class);
+            intent.setClass(Searchtest.this, Mymenu.class);
 
             startActivity(intent);
             return true;

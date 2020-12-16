@@ -245,9 +245,9 @@ List<String>record=new ArrayList<>();
         int id = item.getItemId();
 /**/
         //noinspection SimplifiableIfStatement
-        if (id == R.id.video) {
+        if (id == R.id.action_settings) {
             Intent intent= new Intent();
-            intent.setClass(Search.this, MainActivity.class);
+            intent.setClass(Search.this, Mymenu.class);
 
             startActivity(intent);
             return true;

@@ -26,6 +26,7 @@
             android:textColor="#fff"
             android:textSize="35sp"
             android:text="iii" />
+
         <TextView
             android:id="@+id/content"
             android:layout_width="wrap_content"
@@ -33,6 +34,7 @@
             android:layout_below="@+id/title"
             android:paddingLeft="22dp"
             android:layout_marginTop="20dp"
+            android:layout_alignParentRight="@+id/btn"
             android:textColor="#fff"
             android:maxLines="1"
             android:textSize="20sp"

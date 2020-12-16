@@ -10,16 +10,8 @@ import android.os.Bundle;
 import com.cs.control.Drawkeka;
 import com.cs.control.DrawkekasAdapter;
 import com.cs.control.GlobalVariable;
-import com.cs.day.Empmenu;
-import com.cs.day.Keka;
-import com.cs.day.KekasAdapter;
-import com.cs.day.MainActivity;
 import com.cs.day.Mymenu;
-import com.cs.day.Offprograss;
 import com.cs.mydbtest.dbleaselall;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -156,6 +148,19 @@ public class Offprogresstest extends AppCompatActivity {
                 serial_num=jsonData.getString("serial_num");
                 substitute=jsonData.getString("substitute");
                 manager=jsonData.getString("manager");
+
+                if(substitute.contains("0")){
+                    String result2 = dbempsel.executeQuery(substitute);
+                    JSONArray jsonArray2 = new JSONArray(result2);
+                    JSONObject jsonData2 = jsonArray2.getJSONObject(0);
+                    substitute=jsonData2.getString("name");
+                }
+                if(manager.contains("0")){
+                    String result2 = dbempsel.executeQuery(manager);
+                    JSONArray jsonArray2 = new JSONArray(result2);
+                    JSONObject jsonData2 = jsonArray2.getJSONObject(0);
+                    manager=jsonData2.getString("name");
+                }
                 if(notes.equals("1")){
 
                     Drawkeka  keka = new Drawkeka("流水號:"+serial_num+"\n[待銷假]  "+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+" \n"
@@ -253,7 +258,7 @@ public class Offprogresstest extends AppCompatActivity {
             mylist.setAdapter(adapter);
             mylist.setTextFilterEnabled(true);
             // listview.setSelector(R.drawable.green);
-            mylist.setOnItemClickListener(lstPreferListener);
+            //mylist.setOnItemClickListener(lstPreferListener);
         }
 
         catch(Exception e){}
@@ -326,6 +331,8 @@ public class Offprogresstest extends AppCompatActivity {
 
                 }
             };
+
+
     private ImageView.OnTouchListener retbtn=new ImageView.OnTouchListener(){
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -373,9 +380,9 @@ public class Offprogresstest extends AppCompatActivity {
         int id = item.getItemId();
         /**/
         //noinspection SimplifiableIfStatement
-        if (id == R.id.video) {
+        if (id == R.id.action_settings) {
             Intent intent= new Intent();
-            intent.setClass(Offprogresstest.this, MainActivity.class);
+            intent.setClass(Offprogresstest.this, Mymenu.class);
 
             startActivity(intent);
             return true;

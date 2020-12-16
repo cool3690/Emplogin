@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">全興請假APP</string>
     <string name="day_off">員工請假</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">首頁</string>
     <string name="title_activity_empmenu">全興請假</string>
     <string-array name="absent">
         <item>請選擇假別</item>
@@ -51,4 +51,5 @@
     <string name="title_activity_searchtest">請假記錄查詢測試</string>
     <string name="title_activity_offprogresstest">請假進度查詢</string>
     <string name="title_activity_waitsigntest">待確認表單測試</string>
+    <string name="title_activity_phonebook">電話簿</string>
 </resources>

@@ -12,6 +12,7 @@ import com.cs.control.GlobalVariable;
 
 import com.cs.day.Empmenu;
 import com.cs.day.MainActivity;
+import com.cs.day.Mymenu;
 import com.cs.day.RatesAdapter;
 
 import com.cs.day.Subsign;
@@ -422,9 +423,9 @@ public class Subsigntest extends AppCompatActivity {
         int id = item.getItemId();
         /**/
         //noinspection SimplifiableIfStatement
-        if (id == R.id.video) {
+        if (id == R.id.action_settings) {
             Intent intent= new Intent();
-            intent.setClass(Subsigntest.this, MainActivity.class);
+            intent.setClass(Subsigntest.this, Mymenu.class);
 
             startActivity(intent);
             return true;

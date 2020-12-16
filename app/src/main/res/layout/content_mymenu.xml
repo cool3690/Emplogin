@@ -51,7 +51,7 @@
         <LinearLayout
         android:id="@+id/L2"
         android:layout_width="match_parent"
-        android:layout_height="138dp"
+        android:layout_height="140dp"
         android:layout_below="@id/L1"
 
         android:orientation="horizontal">
@@ -71,17 +71,17 @@
                 android:src="@drawable/cs_test2" />
 
             <ImageView
-            android:id="@+id/bt6"
+            android:id="@+id/phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/cs_blank2" />
+            android:src="@drawable/cs_phone" />
 
     </LinearLayout>
         <LinearLayout
             android:id="@+id/L3"
             android:layout_width="match_parent"
-            android:layout_height="138dp"
+            android:layout_height="140dp"
             android:layout_below="@id/L2"
 
             android:orientation="horizontal">
@@ -107,8 +107,16 @@
                 android:src="@drawable/cs_blank2" />
 
         </LinearLayout>
-
-    </RelativeLayout>
+        <com.cs.control.HorizonScrollTextView
+            android:id="@+id/tv_2"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:textSize="20sp"
+            android:textColor="#fff"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/L3"
+            android:gravity="center_vertical" />
+       </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

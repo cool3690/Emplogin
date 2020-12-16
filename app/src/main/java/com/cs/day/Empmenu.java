@@ -238,9 +238,9 @@ public class Empmenu extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.video) {
+        if (id == R.id.action_settings) {
             Intent intent= new Intent();
-            intent.setClass(Empmenu.this, MainActivity.class);
+            intent.setClass(Empmenu.this, Mymenu.class);
 
             startActivity(intent);
             return true;

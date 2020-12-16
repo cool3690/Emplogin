@@ -168,9 +168,9 @@ public class Waitsigntest extends AppCompatActivity {
 
                 //jsonData.getString("start_t").substring(0, 5)+"~";
 
-                //
-                if(substitute.contains("A")&&substitute.equals(account) ||!substitute.contains("A")&&manager.equals(account))
-                {}
+                // if(substitute.contains("A")&&substitute.equals(account) ||!substitute.contains("A")&&manager.equals(account))
+                //                {}
+
 
                     if(notes.equals("1"))
                     {  list.add("流水號:"+serial_num+"\n"+"銷假:"+myname+"/"+type+"/"+reason+"\n開始:"+start_d+"/"+start_t+"\n結束:"+end_d+"/"+end_t+"\n");
@@ -221,24 +221,25 @@ public class Waitsigntest extends AppCompatActivity {
                             String mylog=jsonData.getString("mylog");
                             String notes=jsonData.getString("notes");
                             //show.setText(start_d);
-                            if(substitute.contains("A")&&substitute.equals(account)
-                                    ||substitute.contains("B")&&substitute.equals(account)
-                                    ||substitute.contains("C")&&substitute.equals(account))
+                            if(substitute.contains("0")&&substitute.equals(account))
                             {
                                 if(notes.equals("1"))
                                 {mylog+=fDate+name+"確認"+"\n";
                                     dbleaup.executeQuery(emp_id,name,null,lea_id,"2",mylog);
                                     check=true;
                                 }
-                                else if(notes.equals("0")){
+                                else if(notes.equals("")){
                                     mylog+=fDate+name+"確認"+"\n";
+                                    dbleaup.executeQuery(emp_id,name,null,lea_id,"0",mylog); //update簽核
+                                    check=true;
+                                }
+                                else if(notes.equals("1")){
+                                    mylog+=fDate+name+"取消請假"+"\n";
                                     dbleaup.executeQuery(emp_id,name,null,lea_id,"",mylog); //update簽核
                                     check=true;
                                 }
                             }
-                            else if(!substitute.contains("A")&&manager.equals(account)
-                                    ||!substitute.contains("B")&&manager.equals(account)
-                                    ||!substitute.contains("C")&&manager.equals(account))
+                            else if(!substitute.contains("0")&&manager.equals(account))
                             {
                                 if(notes.equals("1"))
                                 {mylog+=fDate+name+"簽核"+"\n";

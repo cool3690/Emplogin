@@ -17,6 +17,7 @@ import android.os.StrictMode;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -63,10 +64,22 @@ ImageView btn;
         date=(TextView)findViewById(R.id.date);
         btn=(ImageView)findViewById(R.id.btn);
         mylist=(ListView)findViewById(R.id.list);
+        btn.setOnClickListener(btn_1);
         mydb();
         myid.add(0);
     }
-
+private Button.OnClickListener btn_1=new Button.OnClickListener(){
+    @Override
+    public void onClick(View view) {
+        Intent intent=new Intent();
+        intent.setClass(Bulletin.this,Bulletinmore.class);
+        Bundle bundle=new Bundle();
+        bundle.putString("POSITION",0+"");
+        bundle.putStringArrayList("ID", myid);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+};
     public void mydb(){
 
         try{
@@ -87,7 +100,9 @@ ImageView btn;
                     content.setText(mycontent);
                     depart.setText("       "+mydepart);
                     date.setText(mydate);
-
+                    myid.add(jsonData.getString("id"));
+                    btKeka  keka = new btKeka(mytitle,mycontent,mydepart,mydate,R.drawable.cs_btbt);
+                    kekas.add(keka);
 
                     }
                 else if(myauthority.equals("1")){
@@ -122,6 +137,7 @@ ImageView btn;
                     Intent intent=new Intent();
                     intent.setClass(Bulletin.this,Bulletinmore.class);
                     Bundle bundle=new Bundle();
+                    //position++;
                     bundle.putString("POSITION",position+"");
                     bundle.putStringArrayList("ID", myid);
                     intent.putExtras(bundle);
