@@ -95,7 +95,9 @@ public class Bulletinmore extends AppCompatActivity {
             if(Integer.parseInt(pos)==0){
                 myurl+= "cs0.jpg";
             }
-
+            else if(Integer.parseInt(pos)==1){
+                myurl+= "cs0.jpg";
+            }
             new AsyncTask<String, Void, Bitmap>()
             {
                 @Override

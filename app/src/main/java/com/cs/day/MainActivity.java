@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView show;
     private ProgressDialog dialog;
     String ans="";
+    boolean jmp=false;
     Timer timer = new Timer();
 
     @Override
@@ -224,51 +225,49 @@ if(ans.equals("A")){
 
             String result = db.executeQuery(emp_id,passwd);
             // mytoast(result);
-            if(result==""||result.contains("null")){
-                mytoast("帳號或密碼錯誤!");
-                if(dialog != null && dialog.isShowing()){
-                    dialog.dismiss();
+            for(int w=0;w<1;w++){
+                if(result==""||result.contains("null")){
+                    mytoast("帳號或密碼錯誤!");
+                    jmp=false;
+                    if(dialog != null && dialog.isShowing()){
+                        dialog.dismiss();
+                    }
+                    break;
+                }
+                JSONArray jsonArray = new JSONArray(result);
+                Runnable progressRunnable = new Runnable() {
+
+                    @Override
+                    public void run() {
+                        dialog.cancel();
+                    }
+                };
+                jmp=true;
+                Handler pdCanceller = new Handler();
+                pdCanceller.postDelayed(progressRunnable, 2000);
+                for(int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject jsonData = jsonArray.getJSONObject(i);
+                    String str=jsonData.getString("emp_id");
+                    String account=acc.getText().toString();
+                    String department=jsonData.getString("department");
+                    String name=jsonData.getString("name");
+                    String hr=jsonData.getString("hrremain");
+                    String pwd=jsonData.getString("pwd");
+                    show.setText("歡迎 "+name);
+
+
+                    //Class.forName(b)
+                    GlobalVariable gv = (GlobalVariable)getApplicationContext();
+                    gv.setEmpacc(account);
+                    gv.setEmppwd(pwd);
+                    gv.setEmpdepartment(department);
+                    gv.setEmpname(name);
+                    gv.setEmphr(hr);
+
                 }
             }
-            JSONArray jsonArray = new JSONArray(result);
-            Runnable progressRunnable = new Runnable() {
-
-                @Override
-                public void run() {
-                    dialog.cancel();
-                }
-            };
-
-            Handler pdCanceller = new Handler();
-            pdCanceller.postDelayed(progressRunnable, 2000);
-            for(int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonData = jsonArray.getJSONObject(i);
-                String str=jsonData.getString("emp_id");
-                String account=acc.getText().toString();
-                String department=jsonData.getString("department");
-                String name=jsonData.getString("name");
-                String hr=jsonData.getString("hrremain");
-                String pwd=jsonData.getString("pwd");
-                show.setText("歡迎 "+name);
 
 
-                //Class.forName(b)
-                GlobalVariable gv = (GlobalVariable)getApplicationContext();
-                gv.setEmpacc(account);
-                gv.setEmppwd(pwd);
-                gv.setEmpdepartment(department);
-                gv.setEmpname(name);
-                gv.setEmphr(hr);
-                /*
-                Bundle bundle=new Bundle();
-                bundle.putString("ACCOUNT", account);
-                intent.putExtras(bundle);
-*/
-                //timer.cancel();
-
-
-
-            }
         } catch(Exception e) {}
     }
 
@@ -306,7 +305,7 @@ if(ans.equals("A")){
                         {
                             mydb();
                         }
-                        if(gv.getEmpacc()!=null && gv.getEmpdepartment()!=null && gv.getEmpname()!=null && gv.getEmphr()!=null){
+                        if(gv.getEmpacc()!=null && gv.getEmpdepartment()!=null && gv.getEmpname()!=null && gv.getEmphr()!=null &&jmp ){
                             Intent intent=new Intent();
                             intent.setClass(MainActivity.this,Mymenu.class);
                             startActivity(intent);
